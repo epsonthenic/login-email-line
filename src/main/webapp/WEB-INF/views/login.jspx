@@ -30,6 +30,7 @@
         .ghost-button-rounded-corners {
             display: inline-block;
             width: 200px;
+            height: 60px;
             padding: 8px;
             color:#133C55;
             background-image: linear-gradient(120deg, #a6c0fe 0%, #f68084 100%);
@@ -66,23 +67,20 @@
             <div class="text-center-1 margin-100">
                 <h1 class="h1top"><strong>HELPDESK SYSTEM FORM</strong></h1>
             </div>
-            <div class="text-center-1 margin-80">
-                <h4 style="color: white">Log in to your Account</h4>
-            </div>
             <div class="form-group ${error != null ? 'has-error' : ''}" style="margin: 50px">
                 <div class="offset-md-3 col-md-6">
                 <div style="margin-top: 20px">
-                    <input name="username" type="text" class="form-control" placeholder="Username"
+                    <input name="username" type="text" class="form-control" style="height: 45px;font-size: 20px" placeholder="Username"
                            autofocus="true"/>
                 </div>
                 <div style="margin-top: 20px">
-                    <input name="password" type="password" class="form-control" placeholder="Password"/>
+                    <input name="password" type="password" class="form-control" style="height: 45px;font-size: 20px" placeholder="Password"/>
                     <span>${error}</span>
                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                 </div>
                 </div>
                 <div style="text-align: center;margin-top: 30px;">
-                    <button class="btn ghost-button-rounded-corners" type="submit"><h5><strong>Login</strong></h5></button>
+                    <button class="btn ghost-button-rounded-corners" type="submit"><h5><strong style="font-size: 33px">Login</strong></h5></button>
                     <!--<h4 class="text-center"><a href="${contextPath}/registration">Create an account</a></h4>-->
                 </div>
             </div>
