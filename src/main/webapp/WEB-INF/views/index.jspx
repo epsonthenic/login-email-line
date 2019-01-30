@@ -1,0 +1,982 @@
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:component="urn:jsptagdir:/WEB-INF/tags/component"
+     xmlns:util="urn:jsptagdir:/WEB-INF/tags/util" xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns:spring="http://www.springframework.org/tags" version="2.0"
+     xmlns:form="http://www.springframework.org/tags/form">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <spring:url value="/resources/scripts/appUser/load.js" var="load_js_url"/>
+    <script src="${load_js_url}" type="text/javascript"><!-- required for FF3 and Opera --></script>
+
+    <title>Chitsanu</title>
+
+
+    <style>
+        .h1-issueLog {
+            color: black;
+            margin-left: 30px;
+        }
+
+        #myProgress {
+            width: 100%;
+            background-color: #ddd;
+            visibility: hidden;
+        }
+
+        #myBar {
+            width: 20%;
+            height: 30px;
+            background-color: #4CAF50;
+            text-align: center;
+            line-height: 30px;
+            color: white;
+        }
+
+        .autocomplete {
+            position: relative;
+            display: inline-block;
+        }
+
+        input {
+            border: 1px solid transparent;
+            background-color: #f1f1f1;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        input[type=text] {
+            background-color: #f1f1f1;
+            width: 100%;
+        }
+
+        input[type=submit] {
+            background-color: DodgerBlue;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .autocomplete-items {
+            position: absolute;
+            border: 1px solid #d4d4d4;
+            border-bottom: none;
+            border-top: none;
+            z-index: 99;
+            /*position the autocomplete items to be the same width as the container:*/
+            top: 100%;
+            left: 0;
+            right: 0;
+        }
+
+
+        .autocomplete-items div {
+            padding: 10px;
+            cursor: pointer;
+            background-color: #fff;
+            border-bottom: 1px solid #d4d4d4;
+        }
+
+        /*when hovering an item:*/
+        .autocomplete-items div:hover {
+            background-color: #e9e9e9;
+        }
+
+        /*when navigating through the items using the arrow keys:*/
+        .autocomplete-active {
+            background-color: DodgerBlue !important;
+            color: #ffffff;
+        }
+
+        /*--------------------Mask loading-------------------------*/
+        .lds-dual-ring {
+            display: inline-block;
+            width: 1px;
+            height: 1px;
+        }
+
+        .lds-dual-ring:after {
+            content: " ";
+            display: block;
+            width: 106px;
+            height: 106px;
+            margin: 1px;
+            border-radius: 100%;
+            border: 5px solid #fff;
+            border-color: #fff transparent #fff transparent;
+            animation: lds-dual-ring 0.5s linear infinite;
+        }
+
+        @keyframes lds-dual-ring {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+
+    <c:if test="${pageContext.request.userPrincipal.name != null}">
+        <form id="logoutForm" method="POST" action="${contextPath}/logout">
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+        </form>
+
+
+    </c:if>
+
+    <div class="container">
+        <div class="h1-issueLog">
+            <div class="row">
+                <div class="col-3">
+                    <h1>Issue Log</h1>
+                </div>
+                <div class="col-9">
+                    <p class="float-lg-right">Welcome ${pageContext.request.userPrincipal.name} | <a
+                            onclick="document.forms['logoutForm'].submit()">Logout</a></p>
+                </div>
+
+            </div>
+        </div>
+        <div class="card ">
+            <div class="card-body">
+                <div class="row ">
+                    <div class="col-md-1">
+                        <label>sender :</label>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="row">
+                            <div>
+                                <input type="text" class="form-control form-control-sm" name="search-sender"
+                                       id="search-sender"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <label>subject :</label>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="row">
+                            <div>
+                                <input type="text" class="form-control form-control-sm" name="search-subject"
+                                       id="search-subject"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <label>email :</label>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="row">
+                            <div>
+                                <input type="text" class="form-control form-control-sm" name="search-email"
+                                       id="search-email"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <label>recipient:</label>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="row">
+                            <div>
+                                <input type="text" class="form-control form-control-sm" name="search-responsible"
+                                       id="search-responsible"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!---->
+
+                <div class="row" style="margin-top: 10px">
+                    <div class="col-md-1">
+                        <label>content :</label>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="row">
+                            <div>
+                                <input type="text" class="form-control form-control-sm " style="width: 100%" name="search-content"
+                                       id="search-content"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <p class="float-lg-right">status : </p>
+                    </div>
+                    <div class="col-md-2">
+                        <select class="form-control form-control-sm" id="search-status">
+                            <option>all</option>
+                            <option>wait..</option>
+                            <option>editing..</option>
+                            <option>testing..</option>
+                            <option style="color: green">complete</option>
+
+                        </select>
+                    </div>
+                    <div class="col-md-1">
+                        <p class="float-lg-right">Level : </p>
+                    </div>
+                    <div class="col-md-1">
+                        <select class="form-control form-control-sm" id="search-level">
+                            <option>all</option>
+                            <option>0</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                        </select>
+                    </div>
+                    <div class="col-md-1">
+                        <p class="float-lg-right">Type : </p>
+                    </div>
+                    <div class="col-md-2">
+                        <select class="form-control form-control-sm" style="width: 100%" id="search-type">
+                            <option style="color: #00b0ff">all</option>
+                            <option style="color: #00b0ff">email</option>
+                            <option style="color: green">LINE</option>
+
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-1">
+                        <label>date :</label>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row">
+                            <input type="text" class="form-control form-control-sm" name="searchValue"
+                                   id="searchValue"/>
+                        </div>
+                    </div>
+
+                    <div class="col-md-8 ">
+                        <!--edit-->
+                        <div>
+                            <button type="button" class="btn btn-success btn-sm float-lg-right"
+                                    style="margin-right: 10px"  id="btn-search-test">test <span class="glyphicon glyphicon-search"/>
+                            </button>
+                            <button type="button" class="btn btn-success btn-sm float-lg-right"
+                                    style="margin-right: 10px" data-toggle="modal"
+                                    data-target="#exampleModal" id="btn-add">Add <span class="glyphicon glyphicon-plus"/>
+                            </button>
+                            <button type="button" class="btn btn-primary btn-sm float-lg-right" id="btn-search"
+                                    style="margin-right: 10px">Search
+                            </button>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+        <div class="row" style="margin-top: 5px">
+            <div class="col-md-12">
+                <table class="table table-striped table-sm" style="font-size: 13px;">
+                    <thead>
+                    <tr style="background-color: #cce5ff;text-align: center;">
+                        <th>#</th>
+                        <th>sender</th>
+                        <th>subject</th>
+                        <th>email</th>
+                        <th>responsible</th>
+                        <th>send date</th>
+                        <th>level</th>
+                        <th>status</th>
+                        <th>type</th>
+                        <th></th>
+
+                    </tr>
+                    </thead>
+                    <tbody id="tbody1" name="tbody1">
+                    <jsp:text/>
+                    </tbody>
+                </table>
+            </div>
+            <div class="form-group">
+                <util:pagingutil id="pagingSearchDataCustomerLog"/>
+            </div>
+        </div>
+
+    </div>
+    <!--Modal Insert-->
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="modal-title">Insert Data</h3>
+                        </div>
+                        <div class="modal-body" style="font-size: 13px">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <p class="float-lg-right">Sender : </p>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <input type="text" id="add-sender"
+                                                           class="form-control form-control-sm"
+                                                           placeholder="sender.."/>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <p class="float-lg-right">Subject : </p>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <input type="text" id="add-subject"
+                                                           class="form-control form-control-sm"
+                                                           placeholder="subject.."/>
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <p class="float-lg-right">Email : </p>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <input type="text" id="add-email"
+                                                           class="form-control form-control-sm"
+                                                           placeholder="email.."/>
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <p class="float-lg-right">Responsible: </p>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <div class="autocomplete-content">
+                                                        <input type="searchValue" id="add-responsible"
+                                                               class="form-control form-control-sm"
+                                                               placeholder="responsible.."/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <p class="float-lg-right">Status : </p>
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <select class="form-control form-control-sm" id="add-status">
+                                                        <option>wait..</option>
+                                                        <option>editing..</option>
+                                                        <option>testing..</option>
+                                                        <option style="color: green">complete</option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <p class="float-lg-right">Type : </p>
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <select class="form-control form-control-sm" id="add-type">
+                                                        <option style="color: #00b0ff">email</option>
+                                                        <option style="color: green">LINE</option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <p class="float-lg-right">Level : </p>
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <select class="form-control form-control-sm" id="add-level">
+                                                        <option>0</option>
+                                                        <option>1</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <p class="float-lg-right">Content : </p>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <textarea class="form-control" rows="3"
+                                                              id="add-content"
+                                                              style="font-size: 15px">message..</textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary btn-sm " data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary btn-sm " data-dismiss="modal"
+                                    id="add-btn-save">Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Edit Modal-->
+
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <div class="modal fade" id="modal-edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="modal-title">Edit Data</h3>
+                        </div>
+                        <div class="modal-body" style="font-size: 13px">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="text-left"><h3>Subjcet:</h3></div>
+                                </div>
+                                <div class="col-md-10">
+                                    <div class="edit-subject text-left"><h3><label id="edit-subject"></label></h3></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1">
+                                    <div>ID:</div>
+                                </div>
+                                <div class="col-md-10">
+                                    <div class="edit-id text-left"><label id="edit-id"></label></div>
+                                </div>
+                            </div>
+                            <br></br>
+                            <div class="row">
+                                <div class="col-md-1">
+                                    <div class="text-right">Sender:</div>
+                                </div>
+                                <div class="col-md-10">
+                                    <div class="edit-sender text-left"><label id="edit-sender"></label></div>
+                                </div>
+                            </div>
+                            <br></br>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-1">
+                                            <div class="text-right">Email:</div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="edit-email text-left"><label id="edit-email"></label></div>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <div class="text-right">Date :</div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="edit-date text-left"><label id="edit-date"></label></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br></br>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-1">
+                                            <div class="text-right">CC :</div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="edit-CC text-left"><label id="edit-CC"></label></div>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <div class="text-right">BCC :</div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="edit-BCC text-left"><label id="edit-BCC"></label></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br></br>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="text-left">Content</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <textarea class="form-control" rows="10"
+                                          id="edit-content"
+                                          style="margin-right: 2%; margin-left: 2%; font-size: 13px">-</textarea>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="text-left">Attachments :</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="edit-attachments text-left"><label id="edit-attachments"></label></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label id="edit-attachmentsFullName" style="color: white"></label>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary btn-sm " data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary btn-sm " data-dismiss="modal"
+                                    id="btn-Edit-modal" data-toggle="modal"
+                                    data-target="#edit-02">edit
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Modal Del-->
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <div class="modal fade" id="modal-del" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="modal-title">Delete Data</h3>
+                        </div>
+                        <div class="modal-body" style="font-size: 15px">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>Are you sure?</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 ">
+
+                                    <div><label style="font-weight: bold">id : </label><label id="del-id"></label></div>
+
+                                    <div><label style="font-weight: bold">sender : </label><label
+                                            id="del-sender"></label></div>
+
+                                    <div><label style="font-weight: bold">subject : </label><label
+                                            id="del-subject"></label></div>
+
+                                    <div><label style="font-weight: bold">email : </label><label id="del-email"></label>
+                                    </div>
+
+                                    <div><label style="font-weight: bold">responsible : </label><label
+                                            id="del-responsible"></label></div>
+
+                                    <div><label style="font-weight: bold">date time : </label><label
+                                            id="del-date"></label></div>
+
+                                    <div><label style="font-weight: bold">status : </label><label
+                                            id="del-status"></label></div>
+
+                                    <div><label style="font-weight: bold">type : </label><label id="del-type"></label>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary btn-sm " data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-danger btn-sm " data-dismiss="modal"
+                                    id="modal-btn-del">Delete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal Edit 2 -->
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <div class="modal fade" id="edit-02" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="modal-title">Edit Data</h3>
+                        </div>
+                        <div class="modal-body" style="font-size: 13px">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <p class="float-lg-right">ID : </p>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <label id="edit2-id" class="float-lg-left"></label>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <p class="float-lg-right">Sender : </p>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <input type="text" id="edit2-sender"
+                                                           class="form-control form-control-sm"
+                                                           placeholder="sender.."/>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <p class="float-lg-right">Subject : </p>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <input type="text" id="edit2-subject"
+                                                           class="form-control form-control-sm"
+                                                           placeholder="subject.."/>
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <p class="float-lg-right">Email : </p>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <input type="text" id="edit2-email"
+                                                           class="form-control form-control-sm"
+                                                           placeholder="email.."/>
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <p class="float-lg-right">Responsible: </p>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <div class="autocomplete-content">
+                                                        <input type="searchValue" id="edit2-responsible"
+                                                               class="form-control form-control-sm"
+                                                               placeholder="responsible.."/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <p class="float-lg-right">Status : </p>
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <select class="form-control form-control-sm" id="edit2-status">
+                                                        <option>wait..</option>
+                                                        <option>editing..</option>
+                                                        <option>testing..</option>
+                                                        <option style="color: green">complete</option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <p class="float-lg-right">Type : </p>
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <select class="form-control form-control-sm" id="edit2-type">
+                                                        <option style="color: #00b0ff">email</option>
+                                                        <option style="color: green">LINE</option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <p class="float-lg-right">Level : </p>
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <select class="form-control form-control-sm" id="edit2-level">
+                                                        <option>0</option>
+                                                        <option>1</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <p class="float-lg-right">Content : </p>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <textarea class="form-control" rows="3"
+                                                              id="edit2-content"
+                                                              style="font-size: 15px">message..</textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary btn-sm " data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary btn-sm " data-dismiss="modal"
+                                    id="edit-btn2">edit
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--modal canlendar-->
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <div class="modal fade" id="modal-calendar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog modal-sm" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="modal-title">calendar</h3>
+                        </div>
+                        <div class="modal-body" style="font-size: 13px">
+                            <div class="row">
+                                <input type="text" class="form-control form-control-sm" id="txt-modal-calendar"/>
+
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary btn-sm " data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary btn-sm " data-dismiss="modal"
+                                    id="btn-modal-calendar">OK
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Modal alert-->
+    <div class="modal fade" id="modal-alert-update">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <p>Successfully updated</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--edit-->
+    <div class="modal fade" id="modal-alert-loading"
+         style="position: absolute;top: 50%;left: 60%;transform: translate(-50%, -50%);">
+        <div class="modal-dialog">
+            <div class="lds-dual-ring" style="color: white">LOADING..</div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <div class="modal fade" id="modal-search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="modal-title">Search Data</h3>
+                        </div>
+                        <div class="modal-body" style="font-size: 13px">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <p class="float-lg-right">Sender : </p>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <input type="text"
+                                                           class="form-control form-control-sm"
+                                                           placeholder="sender.."/>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <p class="float-lg-right">Subject : </p>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <input type="text"
+                                                           class="form-control form-control-sm"
+                                                           placeholder="subject.."/>
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <p class="float-lg-right">Email : </p>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <input type="text"
+                                                           class="form-control form-control-sm"
+                                                           placeholder="email.."/>
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <p class="float-lg-right">Responsible: </p>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <div class="autocomplete-content">
+                                                        <input type="searchValue"
+                                                               class="form-control form-control-sm"
+                                                               placeholder="responsible.."/>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary btn-sm " data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary btn-sm " data-dismiss="modal"
+                                    id="modal-find">Search
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <div class="modal fade" id="modal-search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="modal-title">Search Data</h3>
+                        </div>
+                        <div class="modal-body" style="font-size: 13px">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <p class="float-lg-right">Sender : </p>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <input type="text" id="add-sender"
+                                                           class="form-control form-control-sm"
+                                                           placeholder="sender.."/>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <p class="float-lg-right">Subject : </p>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <input type="text" id="add-subject"
+                                                           class="form-control form-control-sm"
+                                                           placeholder="subject.."/>
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <p class="float-lg-right">Email : </p>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <input type="text" id="add-email"
+                                                           class="form-control form-control-sm"
+                                                           placeholder="email.."/>
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <p class="float-lg-right">Responsible: </p>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <div class="autocomplete-content">
+                                                        <input type="searchValue" id="add-responsible"
+                                                               class="form-control form-control-sm"
+                                                               placeholder="responsible.."/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <p class="float-lg-right">Status : </p>
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <select class="form-control form-control-sm" id="add-status">
+                                                        <option>wait..</option>
+                                                        <option>editing..</option>
+                                                        <option>testing..</option>
+                                                        <option style="color: green">complete</option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <p class="float-lg-right">Type : </p>
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <select class="form-control form-control-sm" id="add-type">
+                                                        <option style="color: #00b0ff">email</option>
+                                                        <option style="color: green">LINE</option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <p class="float-lg-right">Level : </p>
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <select class="form-control form-control-sm" id="add-level">
+                                                        <option>0</option>
+                                                        <option>1</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <p class="float-lg-right">Content : </p>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <textarea class="form-control" rows="3"
+                                                              id="add-content"
+                                                              style="font-size: 15px">message..</textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary btn-sm " data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary btn-sm " data-dismiss="modal"
+                                    id="add-btn-save">Search
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

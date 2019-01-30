@@ -1,0 +1,20 @@
+<jsp:root xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:fmt="http://java.sun.com/jsp/jstl/fmt" xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:util="urn:jsptagdir:/WEB-INF/tags/util" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <jsp:directive.attribute name="id" type="java.lang.String" required="true" rtexprvalue="true"/>
+
+    <c:set var="CENTRAL_LABEL_DISPLAYING" scope="request" value="5"/>
+    <c:set var="CENTRAL_LABEL_DASH" scope="request" value="-"/>
+    <c:set var="CENTRAL_LABEL_Of" scope="request" value="of"/>
+    <c:set var="CENTRAL_LABEL_RECORD" scope="request" value="Record"/>
+    <c:set var="CENTRAL_LABEL_RECORDS" scope="request" value="Records"/>
+    <c:set var="CENTRAL_LABEL_PAGE" scope="request" value="1"/>
+
+    <label id="${id}Label" class="col-sm-6 text-left col-xs-6" style="display:none">Result : 
+        <span id="${id}StartDisplayRecords">0</span>&#160;${CENTRAL_LABEL_DASH}&#160;<span id="${id}ToDisplayRecords">0</span>&#160;${CENTRAL_LABEL_Of}&#160;<span id="${id}DisplayTotalRecord">0</span>&#160;<span id="${id}Record" data-records="${CENTRAL_LABEL_RECORDS}" data-record="${CENTRAL_LABEL_RECORD}">${CENTRAL_LABEL_RECORD}</span>
+    </label>
+
+	<div id="${id}" class="pagination col-sm-6 text-right col-xs-6" style="display:none"><jsp:text/></div>
+
+   
+</jsp:root>
