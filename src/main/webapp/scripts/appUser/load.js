@@ -1,6 +1,6 @@
 var header = $("meta[name='_csrf_header']").attr("content");
 var token = $("meta[name='_csrf']").attr("content");
-var objectUtilPagination = $.extend({},UtilPagination);
+var objectUtilPagination = $.extend({}, UtilPagination);
 
 
 $(document).ready(function () {
@@ -9,7 +9,7 @@ $(document).ready(function () {
 
     // $('#searchValue').val('01-01-2019 00:00 - 01-01-2020 00:00');
     $('#searchValue').val('');
-    if($('#searchValue').val()!=""){
+    if ($('#searchValue').val() != "") {
         console.log(toTimestamp(startTime()));
         console.log(toTimestamp(endTime()));
     }
@@ -24,13 +24,13 @@ $(document).ready(function () {
     })
 
 
-    $('#add-responsible').on('click',function () {
+    $('#add-responsible').on('click', function () {
 
-        var countries = ["Chitsanu","Yotsaporn"];
+        var countries = ["Chitsanu", "Yotsaporn"];
         autocomplete(document.getElementById("add-responsible"), countries);
 
     })
-    $('#btn-add').on('click',function () {
+    $('#btn-add').on('click', function () {
         $('#content').empty();
         $('#content').val("");
     })
@@ -39,13 +39,15 @@ $(document).ready(function () {
         console.log("***************")
 
         var id = $('#edit-id').text();
-        console.log("-->"+id);
+        console.log("-->" + id);
 
         //var json = JSON.parse(showAll());
         var json = jsonItem;
         var indexjson = 0;
-        for(var i=0;i<json.length;i++){
-            if(parseInt(json[i].id) == parseInt(id)){indexjson=i;}
+        for (var i = 0; i < json.length; i++) {
+            if (parseInt(json[i].id) == parseInt(id)) {
+                indexjson = i;
+            }
         }
         console.log(json[indexjson]);
 
@@ -65,36 +67,36 @@ $(document).ready(function () {
         update();
         $('#modal-alert-update').modal('show');
 
-        setTimeout(function() {
+        setTimeout(function () {
             $('#modal-alert-update').modal('hide');
         }, 2000);
 
     })
 
-    $('#add-btn-save').on('click',function () {
+    $('#add-btn-save').on('click', function () {
         insert();
     })
-    $('#modal-btn-del').on('click',function () {
+    $('#modal-btn-del').on('click', function () {
         deleteID();
     })
-    $('#btn-search').on('click',function () {
+    $('#btn-search').on('click', function () {
         $('#modal-alert-loading').modal('show');
         setTimeout(function () {
             findNewDataMail();
-        },1000)
+        }, 1000)
 
     })
-    $('#modal-find').on('click',function () {
+    $('#modal-find').on('click', function () {
         console.log("btn");
         customSearch();
         editSearchCustom()
 
     })
 
-    $('#btn-modal-calendar').on('click',function () {
+    $('#btn-modal-calendar').on('click', function () {
         insertCalendar();
     })
-    $('#btn-search-test').on('click',function () {
+    $('#btn-search-test').on('click', function () {
 
         customSearch();
         editSearchCustom()
@@ -104,7 +106,6 @@ $(document).ready(function () {
 
         console.log(toTimestamp(startTime()));
         console.log(toTimestamp(endTime()));
-
 
 
     })
@@ -117,20 +118,20 @@ $(document).ready(function () {
         }
     });
 });
+
 //===============================================================
 
 function findBySenderAndType() {
- var x;
-    if(($('#ch-line').is(':checked'))&&$('#ch-email').is(':checked')){
+    var x;
+    if (($('#ch-line').is(':checked')) && $('#ch-email').is(':checked')) {
         console.log("email and line checked");
-        x="";
-    }
-    else if($('#ch-line').is(':checked')){
+        x = "";
+    } else if ($('#ch-line').is(':checked')) {
         console.log("line checked");
-        x="LINE";
-    }else if($('#ch-email').is(':checked')){
+        x = "LINE";
+    } else if ($('#ch-email').is(':checked')) {
         console.log("email checked");
-        x="email";
+        x = "email";
     }
 
     let json = $.ajax({
@@ -148,9 +149,10 @@ function findBySenderAndType() {
     console.log(json)
     return json;
 }
+
 function showAll() {
     var sender = "";
-    var subject= "";
+    var subject = "";
     var email = "";
     var respon = "";
     var msg = "";
@@ -179,13 +181,13 @@ function showAll() {
             sender: sender,
             subject: subject,
             email: email,
-            responsible:respon,
+            responsible: respon,
             msg: msg,
             status: status,
             level: level,
             type: type,
-            startTime:StartTime,
-            endTime:EndTime
+            startTime: StartTime,
+            endTime: EndTime
         },
         async: false
     }).done(function () {
@@ -206,43 +208,43 @@ function showAll() {
             //var date = new Date(x.sentDate);
 
             $('#tbody1').append('' +
-                '<tr data-idd="'+x.id+ '">' +
+                '<tr data-idd="' + x.id + '">' +
                 '<td>' + x.id + '</td>' +
                 '<td>' + x.sender + '</td>' +
                 '<td>' + x.subject + '</td>' +
                 '<td>' + x.email + '</td>' +
                 '<td>' + x.responsible + '</td>' +
-                '<td>' + formatDate(x.sentDate)+ '</td>' +
+                '<td>' + formatDate(x.sentDate) + '</td>' +
                 '<td>' + x.level + '</td>' +
                 '<td>' + x.status + '</td>' +
                 '<td>' + x.type + '</td>' +
-                '<td class="text-center"> <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-edit" onclick="editFindDataMail('+x.id+')">edit <span class="glyphicon glyphicon-list"></button>' +
-                ' <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"  data-target="#modal-del" onclick="deleteFindDataMail('+x.id+')">del <span class="glyphicon glyphicon-trash"></button> </td>' +
+                '<td class="text-center"> <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-edit" onclick="editFindDataMail(' + x.id + ')">edit <span class="glyphicon glyphicon-list"></button>' +
+                ' <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"  data-target="#modal-del" onclick="deleteFindDataMail(' + x.id + ')">del <span class="glyphicon glyphicon-trash"></button> </td>' +
                 '</tr>');
         }
     } else {
         $('#tbody1').append('<tr><td style="text-align: center;" colspan="10">No data.</td></tr>');
     }
-        return jsonShowAll;
+    return jsonShowAll;
 }
 
 function formatDate(sentDate) {
     var Sentdate = new Date(sentDate);
     var month = new Array(11);
-    month[0]='01';
-    month[1]='02';
-    month[2]='03';
-    month[3]='04';
-    month[4]='05';
-    month[5]='06';
-    month[6]='07';
-    month[7]='08';
-    month[8]='09';
-    month[9]='10';
-    month[10]='11';
-    month[11]='12';
+    month[0] = '01';
+    month[1] = '02';
+    month[2] = '03';
+    month[3] = '04';
+    month[4] = '05';
+    month[5] = '06';
+    month[6] = '07';
+    month[7] = '08';
+    month[8] = '09';
+    month[9] = '10';
+    month[10] = '11';
+    month[11] = '12';
 
-    var date =  new Array(31);
+    var date = new Array(31);
     date[1] = "01";
     date[2] = "02";
     date[3] = "03";
@@ -277,63 +279,66 @@ function formatDate(sentDate) {
     date[30] = "30";
 
     date[31] = "31";
-    var showDateMonthYear = date[Sentdate.getDate()]+"-"+month[Sentdate.getMonth()]+"-"+Sentdate.getFullYear();
-    var showDate = date[Sentdate.getDate()]+"-"+month[Sentdate.getMonth()]+"-"+Sentdate.getFullYear()+" "+Sentdate.getHours()+":"+Sentdate.getMinutes()+":"+Sentdate.getSeconds();
+    var showDateMonthYear = date[Sentdate.getDate()] + "-" + month[Sentdate.getMonth()] + "-" + Sentdate.getFullYear();
+    var showDate = date[Sentdate.getDate()] + "-" + month[Sentdate.getMonth()] + "-" + Sentdate.getFullYear() + " " + Sentdate.getHours() + ":" + Sentdate.getMinutes() + ":" + Sentdate.getSeconds();
     return showDate;
 }
+
 function setDataSearch() {
     var setStatus;
     var setLevel;
     var setType;
-    if ($('#search-type').val()=="all"){
+    if ($('#search-type').val() == "all") {
         setType = ""
-    }else if(($('#search-type').val()!="all")){
-        setType = ($('#search-type').val()!="all");
+    } else if (($('#search-type').val() != "all")) {
+        setType = ($('#search-type').val() != "all");
     }
-    if ($('#search-level').val()=="all"){
+    if ($('#search-level').val() == "all") {
         setLevel = ""
-    }else if(($('#search-level').val()!="all")){
-        setLevel = ($('#search-level').val()!="all");
+    } else if (($('#search-level').val() != "all")) {
+        setLevel = ($('#search-level').val() != "all");
     }
-    if ($('#search-status').val()=="all"){
+    if ($('#search-status').val() == "all") {
         setStatus = ""
-    }else if(($('#search-status').val()!="all")){
-        setStatus = ($('#search-status').val()!="all");
+    } else if (($('#search-status').val() != "all")) {
+        setStatus = ($('#search-status').val() != "all");
     }
     var jsonCriteria = {
-        sender:$('#search-sender').val(),
-        subject:$('#search-subject').val(),
-        email:$('#search-email').val(),
-        responsible:$('#search-responsible').val(),
-        msg:$('#search-content').val(),
-        status:setStatus,
-        level:setLevel,
-        type:setType,
-        startTime:startTime(),
-        endTime:endTime()
+        sender: $('#search-sender').val(),
+        subject: $('#search-subject').val(),
+        email: $('#search-email').val(),
+        responsible: $('#search-responsible').val(),
+        msg: $('#search-content').val(),
+        status: setStatus,
+        level: setLevel,
+        type: setType,
+        startTime: startTime(),
+        endTime: endTime()
     }
 
     console.log();
     queryData(jsonCriteria);
 
-    console.log("Json : "+jsonCriteria.startTime);
+    console.log("Json : " + jsonCriteria.startTime);
 
 }
+
 let jsonItem;
+
 function queryData(criteriaObject) {
     objectUtilPagination.setId('#pagingSearchDataCustomerLog');
     objectUtilPagination.setUrlData("/appUsers/findByCriteria");
     objectUtilPagination.setUrlSize("/appUsers/findByCriteriaSize");
 
 
-    objectUtilPagination.loadTable = function (items){
+    objectUtilPagination.loadTable = function (items) {
 
         var item = items;
         jsonItem = items;
-        console.log("jsonItem :",jsonItem);
+        console.log("jsonItem :", jsonItem);
         console.log(item)
         $('#tbody1').empty();
-        console.log('Item Data Size = '+item.length)
+        console.log('Item Data Size = ' + item.length)
 
         $('#tbody1').empty();
         if (item.length > 0) {
@@ -342,7 +347,7 @@ function queryData(criteriaObject) {
                 console.log("x " + x);
                 console.log("item length " + item.length);
                 $('#tbody1').append('' +
-                    '<tr data-idd="'+x.id+ '">' +
+                    '<tr data-idd="' + x.id + '">' +
                     '<td>' + x.id + '</td>' +
                     '<td>' + x.sender + '</td>' +
                     '<td>' + x.subject + '</td>' +
@@ -352,8 +357,8 @@ function queryData(criteriaObject) {
                     '<td>' + x.level + '</td>' +
                     '<td>' + x.status + '</td>' +
                     '<td>' + x.type + '</td>' +
-                    '<td class="text-center"> <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-edit" onclick="modalEdit1('+x.id+')">edit <span class="glyphicon glyphicon-list"></button>' +
-                    ' <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"  data-target="#modal-del" onclick="modalDel1('+x.id+')">del <span class="glyphicon glyphicon-trash"></button> </td>' +
+                    '<td class="text-center"> <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-edit" onclick="modalEdit1(' + x.id + ')">edit <span class="glyphicon glyphicon-list"></button>' +
+                    ' <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"  data-target="#modal-del" onclick="modalDel1(' + x.id + ')">del <span class="glyphicon glyphicon-trash"></button> </td>' +
                     '</tr>');
 
             }
@@ -366,11 +371,12 @@ function queryData(criteriaObject) {
 
     objectUtilPagination.setDataSearch(criteriaObject);
     objectUtilPagination.search(objectUtilPagination);
-    objectUtilPagination.loadPage((0*1)+1,objectUtilPagination);
+    objectUtilPagination.loadPage((0 * 1) + 1, objectUtilPagination);
 }
+
 function customSearch() {
     var sender = $('#search-sender').val();
-    var subject= $('#search-subject').val();
+    var subject = $('#search-subject').val();
     var email = $('#search-email').val();
     var respon = $('#search-responsible').val();
     var msg = $('#search-content').val();
@@ -379,9 +385,15 @@ function customSearch() {
     var type = $('#search-type').val();
 
 
-    if(status=='all'){status='';}
-    if(type=='all'){type=''}
-    if(level=='all'){level=''}
+    if (status == 'all') {
+        status = '';
+    }
+    if (type == 'all') {
+        type = ''
+    }
+    if (level == 'all') {
+        level = ''
+    }
 
     console.log(sender);
     console.log(subject);
@@ -398,15 +410,15 @@ function customSearch() {
         type: "GET",
         data: {
             sender: sender,
-             subject: subject,
-             email: email,
-             responsible:respon,
-                msg: msg,
-             status: status,
-             level: level,
-             type: type,
-            startTime:startTime(),
-            endTime:endTime()
+            subject: subject,
+            email: email,
+            responsible: respon,
+            msg: msg,
+            status: status,
+            level: level,
+            type: type,
+            startTime: startTime(),
+            endTime: endTime()
         },
         async: false
     }).done(function () {
@@ -418,6 +430,7 @@ function customSearch() {
     return json;
 
 }
+
 function editSearchCustom() {
     json = JSON.parse(customSearch());
 
@@ -430,7 +443,7 @@ function editSearchCustom() {
             console.log("x " + x);
             console.log("json length " + json.length);
             $('#tbody1').append('' +
-                '<tr data-idd="'+x.id+ '">' +
+                '<tr data-idd="' + x.id + '">' +
                 '<td>' + x.id + '</td>' +
                 '<td>' + x.sender + '</td>' +
                 '<td>' + x.subject + '</td>' +
@@ -440,8 +453,8 @@ function editSearchCustom() {
                 '<td>' + x.level + '</td>' +
                 '<td>' + x.status + '</td>' +
                 '<td>' + x.type + '</td>' +
-                '<td class="text-center"> <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-edit" onclick="modalEdit('+x.id+')">edit <span class="glyphicon glyphicon-list"></button>' +
-                ' <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"  data-target="#modal-del" onclick="modalDel('+x.id+')">del <span class="glyphicon glyphicon-trash"></button> </td>' +
+                '<td class="text-center"> <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-edit" onclick="modalEdit(' + x.id + ')">edit <span class="glyphicon glyphicon-list"></button>' +
+                ' <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"  data-target="#modal-del" onclick="modalDel(' + x.id + ')">del <span class="glyphicon glyphicon-trash"></button> </td>' +
                 '</tr>');
         }
     } else {
@@ -449,22 +462,26 @@ function editSearchCustom() {
     }
 
 }
+
 function downloadFile(filename) {
 
     console.log(filename);
-    location.href= session.context+'/appUsers/download?filename='+filename;
+    location.href = session.context + '/appUsers/download?filename=' + filename;
 }
+
 function downloadFile1(filename) {
 
     console.log(filename);
-    location.href= session.context+'/appUsers/download1?filename='+filename;
+    location.href = session.context + '/appUsers/download1?filename=' + filename;
 }
 
 function modalDel(id) {
     var json = JSON.parse(customSearch());
     var indexjson = 0;
-    for(var i=0;i<json.length;i++){
-        if(parseInt(json[i].id) == parseInt(id)){indexjson=i;}
+    for (var i = 0; i < json.length; i++) {
+        if (parseInt(json[i].id) == parseInt(id)) {
+            indexjson = i;
+        }
     }
     console.log(json[indexjson]);
 
@@ -478,14 +495,17 @@ function modalDel(id) {
     $('#del-responsible').text(json[indexjson].msg);
 
 }
+
 function modalEdit(id) {
     var json = JSON.parse(customSearch());
 
     var x = id;
 
     var indexjson = 0;
-    for(var i=0;i<json.length;i++){
-        if(parseInt(json[i].id) == parseInt(id)){indexjson=i;}
+    for (var i = 0; i < json.length; i++) {
+        if (parseInt(json[i].id) == parseInt(id)) {
+            indexjson = i;
+        }
     }
     console.log(json[indexjson]);
 
@@ -505,132 +525,9 @@ function modalEdit(id) {
     var idline = json[indexjson].idline;
     var type = json[indexjson].type;
 
-
-        try {
-            if (filenameAll.length>5) {
-
-                filenameAll = filenameAll.split(", ");
-
-                $('#edit-attachments').empty();
-                let count;
-                for (count = 0; count < filenameAll.length; count++) {
-                    console.log(filenameAll[count]);
-                    console.log(filenameAll.length);
-                    filenameAll[count];
-                    var filename = filenameAll[count];
-                    var index = filename.lastIndexOf('.');
-                    console.log(filename.length);
-                    console.log(index);
-                    var typeFilename = filename.substring(index, filename.length)
-                    console.log(type);
-                    filename = filename.substring(0, 19);
-                    console.log(filename + "..." + typeFilename);
-                    $('#edit-attachments').append(
-                        // '' + '<label style="text-decoration: underline" onclick="downloadFile(\'' + filenameAll[count] + '\')">' + filename+"..."+typeFilename + '<span class="glyphicon glyphicon-download"></span></label>'
-                        '' + '<button type="button"  onclick="downloadFile(\'' + filenameAll[count] + '\')">' + filename + "..." + typeFilename + ' <span class="glyphicon glyphicon-download"></span></button>'
-                    );
-                    console.log(filenameAll[count]);
-                }
-            }else{
-
-            }
-        }catch (e) {
-
-        }
-
-}
-function modalDel1(id) {
-    var json = jsonItem;
-    var indexjson = 0;
-    for(var i=0;i<json.length;i++){
-        if(parseInt(json[i].id) == parseInt(id)){indexjson=i;}
-    }
-    console.log(json[indexjson]);
-
-    $('#del-id').text(json[indexjson].id);
-    $('#del-sender').text(json[indexjson].sender);
-    $('#del-subject').text(json[indexjson].subject);
-    $('#del-email').text(json[indexjson].email);
-    $('#del-type').text(json[indexjson].type);
-    $('#del-status').text(json[indexjson].status);
-    $('#del-date').text(json[indexjson].sentDate);
-    $('#del-responsible').text(json[indexjson].msg);
-
-}
-function findByIdline() {
-    let json = $.ajax({
-        url: session.context + "/appUsers/findByIdline",
-        headers: {Accept: "application/json;charset=UTF-8"},
-        type: "GET",
-        data: {idline:""},
-        async: false
-    }).done(function () {
-        console.log('done')
-    }).responseText;
-    return json;
-}
-function modalEdit1(id) {
-    var json = jsonItem;
-    //ImgLine --- Nick
-    var json1 = JSON.parse(findByIdline());
-    //ImgLine --- Nick
-    var x = id;
-
-    var indexjson = 0;
-    for(var i=0;i<json.length;i++){
-        if(parseInt(json[i].id) == parseInt(id)){indexjson=i;}
-    }
-    console.log(json[indexjson]);
-
-    $('#edit-sender').text(json[indexjson].sender);
-    $('#edit-id').text(json[indexjson].id);
-    $('#edit-subject').text(json[indexjson].subject);
-    $('#edit-email').text(json[indexjson].email);
-    $('#edit-BCC').text(json[indexjson].bcc);
-    $('#edit-CC').text(json[indexjson].cc);
-    $('#edit-date').text(formatDate(json[indexjson].sentDate));
-    $('#edit-content').text(json[indexjson].msg);
-    $('#edit-attachments').empty();
-    var filenameAll = json[indexjson].attachments;
-
-
-    $('#edit-attachmentsFullName').text(filenameAll);
-
-
-    var idline = json[indexjson].idline;
-    var type = json[indexjson].type;
-    if(type == "LINE")
-    {
-        for(var j=0;j<json1.length;j++){
-            if(idline == json1[j].idline){
-                console.log(json1[j].idline);
-                var textimg = json1[j].imgg+", "+textimg;
-            }
-        }
-        console.log(textimg);
-        try {
-
-            filenameAll = textimg.split(", ");
-
-            $('#edit-attachments').empty();
-            let count;
-            for (count=0;count<filenameAll.length;count++){
-                console.log("-------------")
-                console.log(filenameAll[count]);
-                console.log("-------------")
-                filenameAll[count];
-                $('#edit-attachments').append(
-                    '' + '<button type="button"  onclick="downloadFile1(\'' + filenameAll[count] + '\')">' + filename + "..." + typeFilename + ' <span class="glyphicon glyphicon-download"></span></button>'
-                );
-            }
-        }catch (e) {
-
-        }
-    }
-    else{
 
     try {
-        if (filenameAll.length>5) {
+        if (filenameAll.length > 5) {
 
             filenameAll = filenameAll.split(", ");
 
@@ -654,34 +551,173 @@ function modalEdit1(id) {
                 );
                 console.log(filenameAll[count]);
             }
-        }else{
+        } else {
 
         }
-    }catch (e) {
+    } catch (e) {
 
     }
+
+}
+
+function modalDel1(id) {
+    var json = jsonItem;
+    var indexjson = 0;
+    for (var i = 0; i < json.length; i++) {
+        if (parseInt(json[i].id) == parseInt(id)) {
+            indexjson = i;
+        }
+    }
+    console.log(json[indexjson]);
+
+    $('#del-id').text(json[indexjson].id);
+    $('#del-sender').text(json[indexjson].sender);
+    $('#del-subject').text(json[indexjson].subject);
+    $('#del-email').text(json[indexjson].email);
+    $('#del-type').text(json[indexjson].type);
+    $('#del-status').text(json[indexjson].status);
+    $('#del-date').text(json[indexjson].sentDate);
+    $('#del-responsible').text(json[indexjson].msg);
+
+}
+
+function findByIdline() {
+    let json = $.ajax({
+        url: session.context + "/appUsers/findByIdline",
+        headers: {Accept: "application/json;charset=UTF-8"},
+        type: "GET",
+        data: {idline: ""},
+        async: false
+    }).done(function () {
+        console.log('done')
+    }).responseText;
+    return json;
+}
+
+function modalEdit1(id) {
+    var json = jsonItem;
+    //ImgLine --- Nick
+    var json1 = JSON.parse(findByIdline());
+    //ImgLine --- Nick
+    var x = id;
+
+    var indexjson = 0;
+    for (var i = 0; i < json.length; i++) {
+        if (parseInt(json[i].id) == parseInt(id)) {
+            indexjson = i;
+        }
+    }
+    console.log(json[indexjson]);
+
+    $('#edit-sender').text(json[indexjson].sender);
+    $('#edit-id').text(json[indexjson].id);
+    $('#edit-subject').text(json[indexjson].subject);
+    $('#edit-email').text(json[indexjson].email);
+    $('#edit-BCC').text(json[indexjson].bcc);
+    $('#edit-CC').text(json[indexjson].cc);
+    $('#edit-date').text(formatDate(json[indexjson].sentDate));
+    $('#edit-content').text(json[indexjson].msg);
+    $('#edit-attachments').empty();
+    var filenameAll = json[indexjson].attachments;
+
+
+    $('#edit-attachmentsFullName').text(filenameAll);
+
+
+    var idline = json[indexjson].idline;
+    var type = json[indexjson].type;
+    //ImgLine --- Nick
+    if (type == "LINE") {
+        for (var j = 0; j < json1.length; j++) {
+            if (idline == json1[j].idline) {
+                console.log(json1[j].idline);
+                var textimg =textimg + ", " + json1[j].imgg;
+            }
+        }
+        console.log(textimg);
+        try {
+            filenameAll = textimg.split(", ");
+
+            $('#edit-attachments').empty();
+            let count;
+            for (count = 1; count < filenameAll.length; count++) {
+                console.log("-------------")
+                console.log(filenameAll[count]);
+                console.log("-------------")
+                filenameAll[count];
+                var filename = filenameAll[count];
+                var index = filename.lastIndexOf('.');
+                console.log(filename.length);
+                console.log(index);
+                var typeFilename = filename.substring(index, filename.length)
+                console.log(type);
+                filename = filename.substring(0, 19);
+                console.log(filename + "..." + typeFilename);
+                $('#edit-attachments').append(
+                    '' + '<button type="button"  onclick="downloadFile1(\'' + filenameAll[count] + '\')">' + filename + "..." + typeFilename + ' <span class="glyphicon glyphicon-download"></span></button>'
+                );
+            }
+        } catch (e) {
+
+        }
+    } else {
+        //ImgLine --- Nick
+        try {
+            if (filenameAll.length > 5) {
+
+                filenameAll = filenameAll.split(", ");
+
+                $('#edit-attachments').empty();
+                let count;
+                for (count = 0; count < filenameAll.length; count++) {
+                    console.log(filenameAll[count]);
+                    console.log(filenameAll.length);
+                    filenameAll[count];
+                    var filename = filenameAll[count];
+                    var index = filename.lastIndexOf('.');
+                    console.log(filename.length);
+                    console.log(index);
+                    var typeFilename = filename.substring(index, filename.length)
+                    console.log(type);
+                    filename = filename.substring(0, 19);
+                    console.log(filename + "..." + typeFilename);
+                    $('#edit-attachments').append(
+                        // '' + '<label style="text-decoration: underline" onclick="downloadFile(\'' + filenameAll[count] + '\')">' + filename+"..."+typeFilename + '<span class="glyphicon glyphicon-download"></span></label>'
+                        '' + '<button type="button"  onclick="downloadFile(\'' + filenameAll[count] + '\')">' + filename + "..." + typeFilename + ' <span class="glyphicon glyphicon-download"></span></button>'
+                    );
+                    console.log(filenameAll[count]);
+                }
+            } else {
+
+            }
+        } catch (e) {
+
+        }
     }
 }
-function  AttachmentsFullName(filename) {
+
+function AttachmentsFullName(filename) {
     var name = filename;
     return name;
 }
+
 function canlenderPicker() {
     $('#calenderPicker').daterangepicker();
 }
+
 function deleteID() {
     console.log("Delete");
-    let id=$('#del-id').html();
+    let id = $('#del-id').html();
 
     $.ajax({
-        url: session.context + "/appUsers/del/"+id,
-        contentType : "application/json",
+        url: session.context + "/appUsers/del/" + id,
+        contentType: "application/json",
         headers: {Accept: "application/json;charset=UTF-8"},
         type: "DELETE",
-        beforeSend: function(xhr){
+        beforeSend: function (xhr) {
             xhr.setRequestHeader(header, token);
         },
-        success: function(data) {
+        success: function (data) {
             console.log(data);
         },
         error: function (xhr, ajaxOptions, thrownError) {
@@ -689,51 +725,53 @@ function deleteID() {
         },
         async: false
     })
-    console.log("Delete id :" + id +" success");
+    console.log("Delete id :" + id + " success");
 }
-function  formatToUpdate(dateString) {
+
+function formatToUpdate(dateString) {
     var date = "2019-01-02 17:40:37";
-    console.log("date to update :",date)
+    console.log("date to update :", date)
     date = date.split(" ");
     var date1 = date[0].split("-");
-    var dateUpdate = date1[2]+"-"+date1[1]+"-"+date1[0]+" "+date[1];
-    console.log("date to update",dateUpdate);
+    var dateUpdate = date1[2] + "-" + date1[1] + "-" + date1[0] + " " + date[1];
+    console.log("date to update", dateUpdate);
     var ttt = new Date("2019-01-02 17:40:37");
-    console.log("ttt :",ttt.toDateString())
+    console.log("ttt :", ttt.toDateString())
     return ttt;
 }
+
 function update() {
     console.log("Update")
-    var  date = $('#edit-date').html();
-    let id=$('#edit2-id').html();
+    var date = $('#edit-date').html();
+    let id = $('#edit2-id').html();
     console.log($('#edit-attachmentsFullName').text());
     var jsonData = {
         sender: $('#edit2-sender').val(),
         subject: $('#edit2-subject').val(),
         email: $('#edit2-email').val(),
         responsible: $('#edit2-responsible').val(),
-        sentDate:formatToUpdate(date),
+        sentDate: formatToUpdate(date),
         msg: $('#edit2-content').val(),
         cc: $('#edit-CC').html(),
         bcc: $('#edit-BCC').html(),
         level: $('#edit2-level').val(),
         status: $('#edit2-status').val(),
         type: $('#edit2-type').val(),
-        attachments:$('#edit-attachmentsFullName').text()
+        attachments: $('#edit-attachmentsFullName').text()
     }
-    console.log("json :",jsonData);
+    console.log("json :", jsonData);
     //console.log(jsonData.sentDate);
 
     $.ajax({
-        url: session.context + "/appUsers/update/"+id,
-        contentType : "application/json",
+        url: session.context + "/appUsers/update/" + id,
+        contentType: "application/json",
         headers: {Accept: "application/json"},
         type: "PUT",
-        data:JSON.stringify(jsonData),
-        beforeSend: function(xhr){
+        data: JSON.stringify(jsonData),
+        beforeSend: function (xhr) {
             xhr.setRequestHeader(header, token);
         },
-        success: function(data) {
+        success: function (data) {
             console.log(data);
         },
         error: function (xhr, ajaxOptions, thrownError) {
@@ -742,26 +780,30 @@ function update() {
         async: false
     })
 }
+
 function move() {
     var elem = document.getElementById("myBar");
     var width = 0;
     var id = setInterval(frame, 5);
+
     function frame() {
         if (width >= 100) {
             clearInterval(id);
         } else {
             width++;
             elem.style.width = width + '%';
-            elem.innerHTML = width * 1  + '%';
-            if (width==30){
+            elem.innerHTML = width * 1 + '%';
+            if (width == 30) {
                 findNewDataMail();
-            }else if (width==100){
+            } else if (width == 100) {
                 //location.reload();
             }
         }
     }
+
     var elem = document.getElementById("myBar");
 }
+
 function findNewDataMail() {
     let json = $.ajax({
         url: session.context + "/appUsers/findNewDataMail",
@@ -769,7 +811,7 @@ function findNewDataMail() {
         type: "GET",
         data: {sender: $('#searchValue').val()},
         async: false,
-        complete:function (xhr) {
+        complete: function (xhr) {
             $('#modal-alert-update').modal('hide');
             console.log("complete")
         }
@@ -797,20 +839,22 @@ function findNewDataMail() {
                 '<td>' + x.level + '</td>' +
                 '<td>' + x.status + '</td>' +
                 '<td>' + x.type + '</td>' +
-                '<td class="text-center"> <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-edit"  onclick="modalEdit('+x.id+')" >edit <span class="glyphicon glyphicon-list"></button>' +
-                '            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" onclick="modalDel('+x.id+')" data-target="#modal-del" >del <span class="glyphicon glyphicon-trash"></button> </td>' +
+                '<td class="text-center"> <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-edit"  onclick="modalEdit(' + x.id + ')" >edit <span class="glyphicon glyphicon-list"></button>' +
+                '            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" onclick="modalDel(' + x.id + ')" data-target="#modal-del" >del <span class="glyphicon glyphicon-trash"></button> </td>' +
                 '</tr>');
         }
     } else {
         $('#tbody1').append('<tr><td style="text-align: center;" colspan="10">No data.</td></tr>');
     }
 }
+
 function insert() {
     var dateNow = new Date();
 
     var weekday = new Array(7);
-    weekday[0] =  "Sun"
-    weekday[1] = "Mon";;
+    weekday[0] = "Sun"
+    weekday[1] = "Mon";
+    ;
     weekday[2] = "Tue";
     weekday[3] = "Wed";
     weekday[4] = "Thu";
@@ -837,7 +881,7 @@ function insert() {
     var responsible;
     // var sentDate = weekday[dateNow.getDay()]+" "+month[dateNow.getMonth()]+" "+dateNow.getDate()+" "+dateNow.getHours()+":"+dateNow.getMinutes()+":"+dateNow.getSeconds()+" "+"ICT"+" "+dateNow.getFullYear();
     //var sentDate = toTimestamp(new Date());
-    var sentDate = dateNow.getFullYear()+"-"+month[dateNow.getMonth()]+"-"+dateNow.getDate()+" "+dateNow.getHours()+":"+dateNow.getMinutes()+":"+dateNow.getSeconds();
+    var sentDate = dateNow.getFullYear() + "-" + month[dateNow.getMonth()] + "-" + dateNow.getDate() + " " + dateNow.getHours() + ":" + dateNow.getMinutes() + ":" + dateNow.getSeconds();
     console.log(sentDate);
     var status = $('#add-status').val();
     var type = $('#add-type').val();
@@ -847,23 +891,31 @@ function insert() {
     var bcc;
 
 
-    if($('#add-sender').val()==''){
-        sender="--";
-    }else{sender = $('#add-sender').val();}
+    if ($('#add-sender').val() == '') {
+        sender = "--";
+    } else {
+        sender = $('#add-sender').val();
+    }
 
-    if($('#add-subject').val()==''){
-        subject="--";
-    }else{subject = $('#add-subject').val();}
+    if ($('#add-subject').val() == '') {
+        subject = "--";
+    } else {
+        subject = $('#add-subject').val();
+    }
 
-    if($('#add-email').val()==''){
-        email="--";
-    }else{email = $('#add-email').val();}
+    if ($('#add-email').val() == '') {
+        email = "--";
+    } else {
+        email = $('#add-email').val();
+    }
 
-    if($('#add-responsible').val()==''){
-        responsible="----";
-    }else{responsible = $('#add-responsible').val();}
+    if ($('#add-responsible').val() == '') {
+        responsible = "----";
+    } else {
+        responsible = $('#add-responsible').val();
+    }
 
-    var jsonData = {sender,subject,email,responsible,sentDate,status,type,level,msg}
+    var jsonData = {sender, subject, email, responsible, sentDate, status, type, level, msg}
 
     $.ajax({
         url: session.context + "/appUsers/insert",
@@ -871,10 +923,10 @@ function insert() {
         headers: {Accept: "application/json;charset=UTF-8"},
         type: "POST",
         data: JSON.stringify(jsonData),
-        beforeSend: function(xhr){
+        beforeSend: function (xhr) {
             xhr.setRequestHeader(header, token);
         },
-        success: function(data) {
+        success: function (data) {
             console.log(data);
         },
         error: function (xhr, ajaxOptions, thrownError) {
@@ -884,6 +936,7 @@ function insert() {
     })
     console.log("insert complete")
 }
+
 function findDataMail() {
     let json = $.ajax({
         url: session.context + "/appUsers/findDataMail",
@@ -913,8 +966,8 @@ function findDataMail() {
                 '<td>' + x.level + '</td>' +
                 '<td>' + x.status + '</td>' +
                 '<td>' + x.type + '</td>' +
-                '<td class="text-center"> <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"  data-target="#modal-edit" onclick="editFindDataMail('+x.id+')" >edit <span class="glyphicon glyphicon-list"></button>' +
-                '            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-del" onclick="deleteFindDataMail('+x.id+')">del <span class="glyphicon glyphicon-trash"></button> </td>' +
+                '<td class="text-center"> <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"  data-target="#modal-edit" onclick="editFindDataMail(' + x.id + ')" >edit <span class="glyphicon glyphicon-list"></button>' +
+                '            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-del" onclick="deleteFindDataMail(' + x.id + ')">del <span class="glyphicon glyphicon-trash"></button> </td>' +
                 '</tr>');
         }
     } else {
@@ -926,8 +979,10 @@ function findDataMail() {
 function deleteFindDataMail(id) {
     var json = JSON.parse(showAll());
     var indexjson = 0;
-    for(var i=0;i<json.length;i++){
-        if(parseInt(json[i].id) == parseInt(id)){indexjson=i;}
+    for (var i = 0; i < json.length; i++) {
+        if (parseInt(json[i].id) == parseInt(id)) {
+            indexjson = i;
+        }
     }
     console.log(json[indexjson]);
 
@@ -941,59 +996,65 @@ function deleteFindDataMail(id) {
     $('#del-responsible').text(json[indexjson].msg);
 
 }
-function startTime(){
+
+function startTime() {
     var date;
-    if($('#searchValue').val()!="") {
+    if ($('#searchValue').val() != "") {
         var Fulltime = $('#searchValue').val().split(" - ");
         var time = Fulltime[0].split(" ");
         console.log(time[0]);
         var timeFormat = time[0].split("-");
-        var startTimeFormat = timeFormat[2] + "-" + timeFormat[1] + "-" + timeFormat[0]+" "+time[1]+":00";
+        var startTimeFormat = timeFormat[2] + "-" + timeFormat[1] + "-" + timeFormat[0] + " " + time[1] + ":00";
 
         date = new Date(timeFormat[1] + "-" + timeFormat[0] + "-" + timeFormat[2] + " " + time[1]);
         console.log(startTimeFormat);
         console.log(date);
-    }else{
-        date="";
+    } else {
+        date = "";
     }
 
     return startTimeFormat;
 }
+
 function endTime() {
     var date;
-    if($('#searchValue').val()!=""){
+    if ($('#searchValue').val() != "") {
         var Fulltime = $('#searchValue').val().split(" - ");
         var time = Fulltime[1].split(" ");
         console.log(time[0]);
         var timeFormat = time[0].split("-");
-        var endTimeFormat = timeFormat[2]+"-"+timeFormat[1]+"-"+timeFormat[0]+" "+time[1]+":00";
-        date = new Date(timeFormat[1]+"-"+timeFormat[0]+"-"+timeFormat[2]+" "+time[1]);
+        var endTimeFormat = timeFormat[2] + "-" + timeFormat[1] + "-" + timeFormat[0] + " " + time[1] + ":00";
+        date = new Date(timeFormat[1] + "-" + timeFormat[0] + "-" + timeFormat[2] + " " + time[1]);
         console.log(endTimeFormat);
         console.log(date);
-    }else{
-        date="";
+    } else {
+        date = "";
     }
 
     return endTimeFormat;
 }
-function toTimestamp(strDate){
+
+function toTimestamp(strDate) {
     var datum
-    if(strDate!=""){
+    if (strDate != "") {
         datum = Date.parse(strDate);
-    }else {
-        datum="";
+    } else {
+        datum = "";
     }
 
     return datum;
 }
+
 function editFindDataMail(id) {
     var json = JSON.parse(showAll());
 
     var x = id;
 
     var indexjson = 0;
-    for(var i=0;i<json.length;i++){
-        if(parseInt(json[i].id) == parseInt(id)){indexjson=i;}
+    for (var i = 0; i < json.length; i++) {
+        if (parseInt(json[i].id) == parseInt(id)) {
+            indexjson = i;
+        }
     }
     console.log(json[indexjson]);
 
@@ -1016,7 +1077,7 @@ function editFindDataMail(id) {
     var type = json[indexjson].type;
 
     try {
-        if (filenameAll.length>5) {
+        if (filenameAll.length > 5) {
             filenameAll = filenameAll.split(", ");
 
             $('#edit-attachments').empty();
@@ -1038,24 +1099,27 @@ function editFindDataMail(id) {
                 );
                 console.log(filenameAll[count]);
             }
-        }else{
+        } else {
 
         }
-    }catch (e) {
+    } catch (e) {
 
     }
 
 }
+
 function autocomplete(inp, arr) {
     /*the autocomplete function takes two arguments,
     the text field element and an array of possible autocompleted values:*/
     var currentFocus;
     /*execute a function when someone writes in the text field:*/
-    inp.addEventListener("input", function(e) {
+    inp.addEventListener("input", function (e) {
         var a, b, i, val = this.value;
         /*close any already open lists of autocompleted values*/
         closeAllLists();
-        if (!val) { return false;}
+        if (!val) {
+            return false;
+        }
         currentFocus = -1;
         /*create a DIV element that will contain the items (values):*/
         a = document.createElement("DIV");
@@ -1075,7 +1139,7 @@ function autocomplete(inp, arr) {
                 /*insert a input field that will hold the current array item's value:*/
                 b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
                 /*execute a function when someone clicks on the item value (DIV element):*/
-                b.addEventListener("click", function(e) {
+                b.addEventListener("click", function (e) {
                     /*insert the value for the autocomplete text field:*/
                     inp.value = this.getElementsByTagName("input")[0].value;
                     /*close the list of autocompleted values,
@@ -1087,7 +1151,7 @@ function autocomplete(inp, arr) {
         }
     });
     /*execute a function presses a key on the keyboard:*/
-    inp.addEventListener("keydown", function(e) {
+    inp.addEventListener("keydown", function (e) {
         var x = document.getElementById(this.id + "autocomplete-list");
         if (x) x = x.getElementsByTagName("div");
         if (e.keyCode == 40) {
@@ -1111,6 +1175,7 @@ function autocomplete(inp, arr) {
             }
         }
     });
+
     function addActive(x) {
         /*a function to classify an item as "active":*/
         if (!x) return false;
@@ -1121,12 +1186,14 @@ function autocomplete(inp, arr) {
         /*add class "autocomplete-active":*/
         x[currentFocus].classList.add("autocomplete-active");
     }
+
     function removeActive(x) {
         /*a function to remove the "active" class from all autocomplete items:*/
         for (var i = 0; i < x.length; i++) {
             x[i].classList.remove("autocomplete-active");
         }
     }
+
     function closeAllLists(elmnt) {
         /*close all autocomplete lists in the document,
         except the one passed as an argument:*/
@@ -1137,6 +1204,7 @@ function autocomplete(inp, arr) {
             }
         }
     }
+
     /*execute a function when someone clicks in the document:*/
     document.addEventListener("click", function (e) {
         closeAllLists(e.target);
