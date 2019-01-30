@@ -8,6 +8,7 @@ com/hellokoding/auth/service/UserDetailsServiceImpl.class
 com/hellokoding/auth/repository/RoleRepository.class
 com/hellokoding/auth/service/AppUserServiceImpl.class
 com/hellokoding/auth/service/Service.class
+com/hellokoding/auth/Controller/MyErrorController.class
 com/hellokoding/auth/model/User.class
 com/hellokoding/auth/ConstantVariable.class
 com/hellokoding/auth/service/UserServiceImpl.class
