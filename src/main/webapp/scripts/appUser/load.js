@@ -620,7 +620,7 @@ function modalEdit1(id) {
                 console.log("-------------")
                 filenameAll[count];
                 $('#edit-attachments').append(
-                    '' + '<label style="text-decoration: underline" onclick="downloadFile1(\'' + filenameAll[count] + '\')">' + filenameAll[count] + '</label>'
+                    '' + '<button type="button"  onclick="downloadFile1(\'' + filenameAll[count] + '\')">' + filename + "..." + typeFilename + ' <span class="glyphicon glyphicon-download"></span></button>'
                 );
             }
         }catch (e) {
