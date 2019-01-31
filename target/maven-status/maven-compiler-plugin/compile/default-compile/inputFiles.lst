@@ -12,6 +12,7 @@
 /home/nick/Desktop/Chitsanu/login-email-line/src/main/java/com/hellokoding/auth/Controller/UserController.java
 /home/nick/Desktop/Chitsanu/login-email-line/src/main/java/com/hellokoding/auth/service/UserService.java
 /home/nick/Desktop/Chitsanu/login-email-line/src/main/java/com/hellokoding/auth/Controller/AppUserDataController.java
+/home/nick/Desktop/Chitsanu/login-email-line/src/main/java/com/hellokoding/auth/Controller/MyErrorController.java
 /home/nick/Desktop/Chitsanu/login-email-line/src/main/java/com/hellokoding/auth/service/SecurityService.java
 /home/nick/Desktop/Chitsanu/login-email-line/src/main/java/com/hellokoding/auth/model/User.java
 /home/nick/Desktop/Chitsanu/login-email-line/src/main/java/com/hellokoding/auth/service/SecurityServiceImpl.java

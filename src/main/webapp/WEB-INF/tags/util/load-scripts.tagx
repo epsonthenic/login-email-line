@@ -8,6 +8,7 @@
         value="/resources/styles/font-awesome.min.css" var="fontAwesome_css_url"/>
     <spring:url value="/resources/styles/daterangepicker.css" var="calender_date"/>
     <spring:url value="/resources/styles/flatpickr.min.css" var="flatpickr_css"/>
+    <spring:url value="/resources/styles/standard.css" var="standard_css"/>
     <spring:url value="/resources/styles/glyphicon.css" var="glyphicon_css"/>
     <!--<spring:url
 
@@ -23,6 +24,7 @@
     <link rel="stylesheet" type="text/css" href="${calender_date}"/>
     <link rel="stylesheet" type="text/css" href="${flatpickr_css}"/>
     <link rel="stylesheet" type="text/css" href="${glyphicon_css}"/>
+    <link rel="stylesheet" type="text/css" href="${standard_css}"/>
 
     <!-- Load JS -->
     <spring:url value="/resources/scripts/jquery-3.3.1.min.js" var="jquery_js_url"/>
