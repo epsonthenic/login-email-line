@@ -1,7 +1,7 @@
 com/hellokoding/auth/WebApplication.class
 com/hellokoding/auth/service/SecurityServiceImpl.class
-com/hellokoding/auth/service/SecurityService.class
 com/hellokoding/auth/spring/ApplicationConfiguration.class
+com/hellokoding/auth/service/SecurityService.class
 com/hellokoding/auth/Controller/UserController.class
 com/hellokoding/auth/WebSecurityConfig.class
 com/hellokoding/auth/service/UserDetailsServiceImpl.class
@@ -11,9 +11,9 @@ com/hellokoding/auth/service/Service.class
 com/hellokoding/auth/Controller/MyErrorController.class
 com/hellokoding/auth/model/User.class
 com/hellokoding/auth/ConstantVariable.class
-com/hellokoding/auth/service/UserServiceImpl.class
 com/hellokoding/auth/repository/UserRepository.class
 com/hellokoding/auth/model/Role.class
+com/hellokoding/auth/service/UserServiceImpl.class
 com/hellokoding/auth/Controller/AppUserDataController.class
 com/hellokoding/auth/service/UserService.class
 com/hellokoding/auth/validator/UserValidator.class
