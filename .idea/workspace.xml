@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/src/main/webapp/scripts/appUser/load.js" line="671" mnemonic="1" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/webapp/scripts/appUser/load.js" line="916" mnemonic="2" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="ecd82e05-144d-4ce6-8c6e-a55462d3f840" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/styles/standard.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/util/load-scripts.tagx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/util/load-scripts.tagx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hellokoding/auth/Controller/AppUserDataController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hellokoding/auth/Controller/AppUserDataController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jspx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jspx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/scripts/appUser/load.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/scripts/appUser/load.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,10 +24,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/hellokoding/auth/Controller/AppUserDataController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="32" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
+            <state relative-caret-position="794">
+              <caret line="168" column="37" selection-start-line="168" selection-start-column="37" selection-end-line="168" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -30,90 +35,36 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/scripts/appUser/load.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="595" column="12" selection-start-line="595" selection-start-column="12" selection-end-line="595" selection-end-column="12" />
+            <state relative-caret-position="375">
+              <caret line="448" column="46" selection-start-line="448" selection-start-column="46" selection-end-line="448" selection-end-column="46" />
               <folding>
                 <element signature="e#202#3111#0" />
                 <element signature="e#547#623#0" />
-                <element signature="e#673#715#0" />
                 <element signature="e#767#903#0" />
                 <element signature="e#946#1015#0" />
                 <element signature="e#1067#1941#0" />
-                <element signature="e#1987#2194#0" />
                 <element signature="n#!!block;n#findBySenderAndType#0" />
-                <element signature="n#!!block;n#showAll#0" />
                 <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
                 <element signature="n#!!block;n#formatDate#0" />
-                <element signature="n#!!block;n#setDataSearch#0" />
-                <element signature="n#!!block;n#queryData#0" />
                 <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
                 <element signature="n#!!block;n#customSearch#0" />
-                <element signature="n#!!block;n#editSearchCustom#0" />
                 <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
                 <element signature="n#!!block;n#downloadFile#0" />
                 <element signature="n#!!block;n#downloadFile1#0" />
                 <element signature="n#!!block;n#modalDel#0" />
                 <element signature="n#!!block;n#modalEdit#0" />
-                <element signature="n#!!block;n#modalDel1#0" />
                 <element signature="n#!!block;n#AttachmentsFullName#0" />
                 <element signature="n#!!block;n#canlenderPicker#0" />
-                <element signature="n#!!block;n#deleteID#0" />
                 <element signature="n#!!block;n#move#0" />
-                <element signature="n#!!block;n#findNewDataMail#0" />
-                <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
                 <element signature="n#!!block;n#insert#0" />
-                <element signature="n#!!block;n#findDataMail#0" />
                 <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
                 <element signature="n#!!block;n#deleteFindDataMail#0" />
-                <element signature="n#!!block;n#startTime#0" />
                 <element signature="n#!!block;n#endTime#0" />
                 <element signature="n#!!block;n#toTimestamp#0" />
-                <element signature="n#!!block;n#editFindDataMail#0" />
                 <element signature="n#style#0;n#label#0;n#!!top" expanded="true" />
-                <element signature="n#!!block;n#autocomplete#0" />
-                <element signature="n#!!block;n#modalEdit1#0" />
-                <element signature="n#!!block;n#modalEdit1#0" />
+                <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
                 <element signature="n#!!block;n#findByIdline#0" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/scripts/util/AjaxUtil.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-195" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/scripts/util/pagingUtil.js">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/styles/standard.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jspx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="88" column="11" selection-start-line="88" selection-start-column="11" selection-end-line="88" selection-end-column="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/hellokoding/auth/Controller/MyErrorController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="20" selection-start-line="20" selection-end-line="20" />
             </state>
           </provider>
         </entry>
@@ -121,8 +72,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jspx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
+            <state relative-caret-position="124">
+              <caret line="135" column="85" selection-start-line="135" selection-start-column="85" selection-end-line="135" selection-end-column="85" />
               <folding>
                 <element signature="n#div#1;n#div#0;n#!!top" />
                 <element signature="n#div#2;n#div#0;n#!!top" />
@@ -132,26 +83,7 @@
                 <element signature="n#div#6;n#div#0;n#!!top" />
                 <element signature="n#div#7;n#div#0;n#!!top" />
                 <element signature="n#div#8;n#div#0;n#!!top" />
-                <element signature="n#div#9;n#div#0;n#!!top" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/layouts/default.jspx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="40" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/util/load-scripts.tagx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="26" column="67" selection-start-line="26" selection-start-column="67" selection-end-line="26" selection-end-column="67" />
             </state>
           </provider>
         </entry>
@@ -176,10 +108,34 @@
       <find>setDataSearch</find>
       <find>edit</find>
       <find>update</find>
+      <find>home</find>
+      <find>glyphicon</find>
+      <find>searchValue</find>
+      <find>auto</find>
+      <find>clear</find>
+      <find>btn-c</find>
+      <find>findnew</find>
+      <find>edit-btn</find>
+      <find>drp-calendar left</find>
+      <find>searchValueDate</find>
+      <find>modal</find>
+      <find>texta</find>
+      <find>'&lt;td&gt;' + x.send_To + '&lt;/td&gt;' +</find>
+      <find>x.sender</find>
+      <find>setDat</find>
+      <find>search-sender</find>
+      <find>gly</find>
+      <find>trash&quot;&gt;&lt;/button&gt;</find>
+      <find>center&quot;&gt; &lt;div</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -191,6 +147,7 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jspx" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/util/load-scripts.tagx" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hellokoding/auth/Controller/AppUserDataController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/scripts/appUser/load.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jspx" />
       </list>
@@ -208,6 +165,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -399,15 +358,13 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548869504334" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../edit 31-1-2019/Data-mail-line" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -441,17 +398,18 @@
       <workItem from="1548849759477" duration="1939000" />
       <workItem from="1548865382968" duration="4661000" />
       <workItem from="1548899058887" duration="2617000" />
+      <workItem from="1548902259165" duration="12873000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9217000" />
+    <option name="totallyTimeSpent" value="22090000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="41" y="-4" width="1325" height="772" extended-state="6" />
+    <frame x="43" y="-4" width="1323" height="772" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25723222" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26155052" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -467,7 +425,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Spring" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.0" />
+      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.33023256" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
@@ -586,13 +544,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hellokoding/auth/Controller/AppUserDataController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="56" column="53" selection-start-line="56" selection-start-column="53" selection-end-line="56" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/img/bg.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -624,27 +575,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hellokoding/auth/Controller/MyErrorController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/util/load-scripts.tagx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        <state relative-caret-position="390">
+          <caret line="26" column="67" selection-start-line="26" selection-start-column="67" selection-end-line="26" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/scripts/util/AjaxUtil.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/scripts/util/pagingUtil.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jspx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
+        <state relative-caret-position="347">
           <caret line="88" column="11" selection-start-line="88" selection-start-column="11" selection-end-line="88" selection-end-column="11" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/scripts/util/AjaxUtil.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-195" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/scripts/util/pagingUtil.js">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/styles/standard.css">
       <provider selected="true" editor-type-id="text-editor">
@@ -653,10 +609,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/util/load-scripts.tagx">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hellokoding/auth/Controller/MyErrorController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="26" column="67" selection-start-line="26" selection-start-column="67" selection-end-line="26" selection-end-column="67" />
+        <state relative-caret-position="240">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
         </state>
       </provider>
     </entry>
@@ -667,58 +623,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hellokoding/auth/Controller/AppUserDataController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="32" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
+        <state relative-caret-position="794">
+          <caret line="168" column="37" selection-start-line="168" selection-start-column="37" selection-end-line="168" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/scripts/appUser/load.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="595" column="12" selection-start-line="595" selection-start-column="12" selection-end-line="595" selection-end-column="12" />
+        <state relative-caret-position="375">
+          <caret line="448" column="46" selection-start-line="448" selection-start-column="46" selection-end-line="448" selection-end-column="46" />
           <folding>
             <element signature="e#202#3111#0" />
             <element signature="e#547#623#0" />
-            <element signature="e#673#715#0" />
             <element signature="e#767#903#0" />
             <element signature="e#946#1015#0" />
             <element signature="e#1067#1941#0" />
-            <element signature="e#1987#2194#0" />
             <element signature="n#!!block;n#findBySenderAndType#0" />
-            <element signature="n#!!block;n#showAll#0" />
             <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
             <element signature="n#!!block;n#formatDate#0" />
-            <element signature="n#!!block;n#setDataSearch#0" />
-            <element signature="n#!!block;n#queryData#0" />
             <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
             <element signature="n#!!block;n#customSearch#0" />
-            <element signature="n#!!block;n#editSearchCustom#0" />
             <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
             <element signature="n#!!block;n#downloadFile#0" />
             <element signature="n#!!block;n#downloadFile1#0" />
             <element signature="n#!!block;n#modalDel#0" />
             <element signature="n#!!block;n#modalEdit#0" />
-            <element signature="n#!!block;n#modalDel1#0" />
             <element signature="n#!!block;n#AttachmentsFullName#0" />
             <element signature="n#!!block;n#canlenderPicker#0" />
-            <element signature="n#!!block;n#deleteID#0" />
             <element signature="n#!!block;n#move#0" />
-            <element signature="n#!!block;n#findNewDataMail#0" />
-            <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
             <element signature="n#!!block;n#insert#0" />
-            <element signature="n#!!block;n#findDataMail#0" />
             <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
             <element signature="n#!!block;n#deleteFindDataMail#0" />
-            <element signature="n#!!block;n#startTime#0" />
             <element signature="n#!!block;n#endTime#0" />
             <element signature="n#!!block;n#toTimestamp#0" />
-            <element signature="n#!!block;n#editFindDataMail#0" />
             <element signature="n#style#0;n#label#0;n#!!top" expanded="true" />
-            <element signature="n#!!block;n#autocomplete#0" />
-            <element signature="n#!!block;n#modalEdit1#0" />
-            <element signature="n#!!block;n#modalEdit1#0" />
+            <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
             <element signature="n#!!block;n#findByIdline#0" />
           </folding>
         </state>
@@ -726,8 +667,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jspx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
+        <state relative-caret-position="124">
+          <caret line="135" column="85" selection-start-line="135" selection-start-column="85" selection-end-line="135" selection-end-column="85" />
           <folding>
             <element signature="n#div#1;n#div#0;n#!!top" />
             <element signature="n#div#2;n#div#0;n#!!top" />
@@ -737,7 +678,6 @@
             <element signature="n#div#6;n#div#0;n#!!top" />
             <element signature="n#div#7;n#div#0;n#!!top" />
             <element signature="n#div#8;n#div#0;n#!!top" />
-            <element signature="n#div#9;n#div#0;n#!!top" />
           </folding>
         </state>
       </provider>

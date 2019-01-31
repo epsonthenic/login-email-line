@@ -7,14 +7,7 @@ $(document).ready(function () {
 
     console.log("AAAA8888");
 
-    // $('#searchValue').val('01-01-2019 00:00 - 01-01-2020 00:00');
-
-    // if($('#searchValue').val()!=""){
-    //     console.log(toTimestamp(startTime()));
-    //     console.log(toTimestamp(endTime()));
-    // }
-    //customSearch();
-    //editSearchCustom();
+    setDataSearch();
 
 
     $('#txt-modal-calendar').daterangepicker({
@@ -23,7 +16,15 @@ $(document).ready(function () {
         }
     })
     $('#btn-claer-text').on('click',function () {
-        $('#searchValue').val("");
+        $('#searchValueDate').val("");
+        $('#search-subject').val("");
+        $('#search-sender').val("");
+        $('#search-responsible').val("");
+        $('#search-content').val("");
+        $('#search-email').val("");
+        $('#search-type').val("all");
+        $('#search-level').val("all");
+        $('#search-status').val("all");
     })
 
     $('#add-responsible').on('click',function () {
@@ -70,14 +71,17 @@ $(document).ready(function () {
         setTimeout(function() {
             $('#modal-alert-update').modal('hide');
         }, 2000);
+        setDataSearch();
 
     })
 
     $('#add-btn-save').on('click',function () {
         insert();
+        setDataSearch();
     })
     $('#modal-btn-del').on('click',function () {
         deleteID();
+        setDataSearch();
     })
     $('#btn-search').on('click',function () {
         $('#modal-alert-loading').modal('show');
@@ -98,8 +102,14 @@ $(document).ready(function () {
     })
     $('#btn-search-test').on('click',function () {
         setDataSearch();
+        // $('#modal-alert-loading').modal('show');
+        // setTimeout(function () {
+        //     findNewDataMail();
+        // },1000)
+
+
     })
-    $('#searchValue').daterangepicker({
+    $('#searchValueDate').daterangepicker({
         timePicker: true,
         startDate: moment().startOf('hour'),
         endDate: moment().startOf('hour').add(32, 'hour'),
@@ -108,7 +118,7 @@ $(document).ready(function () {
         }
     });
 
-    $('#searchValue').val('');
+    $('#searchValueDate').val('');
 });
 //===============================================================
 
@@ -202,6 +212,7 @@ function showAll() {
                 '<tr data-idd="'+x.id+ '">' +
                 '<td>' + x.id + '</td>' +
                 '<td>' + x.sender + '</td>' +
+                '<td>' + x.send_To + '</td>' +
                 '<td>' + x.subject + '</td>' +
                 '<td>' + x.email + '</td>' +
                 '<td>' + x.responsible + '</td>' +
@@ -209,8 +220,8 @@ function showAll() {
                 '<td>' + x.level + '</td>' +
                 '<td>' + x.status + '</td>' +
                 '<td>' + x.type + '</td>' +
-                '<td class="text-center"> <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-edit" onclick="editFindDataMail('+x.id+')">edit <span class="glyphicon glyphicon-list"></button>' +
-                ' <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"  data-target="#modal-del" onclick="deleteFindDataMail('+x.id+')">del <span class="glyphicon glyphicon-trash"></button> </td>' +
+                '<td class="text-center"> <div><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-edit" onclick="editFindDataMail('+x.id+')">edit <span class="glyphicon glyphicon-list"></button>' +
+                ' <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"  data-target="#modal-del" onclick="deleteFindDataMail('+x.id+')">del <span class="glyphicon glyphicon-trash"></button> </div> </td>' +
                 '</tr>');
         }
     } else {
@@ -281,21 +292,21 @@ function setDataSearch() {
     if ($('#search-type').val()=="all"){
         setType = ""
     }else if(($('#search-type').val()!="all")){
-        setType = ($('#search-type').val()!="all");
+        setType = ($('#search-type').val());
     }
     if ($('#search-level').val()=="all"){
         setLevel = ""
     }else if(($('#search-level').val()!="all")){
-        setLevel = ($('#search-level').val()!="all");
+        setLevel = ($('#search-level').val());
     }
     if ($('#search-status').val()=="all"){
         setStatus = ""
     }else if(($('#search-status').val()!="all")){
-        setStatus = ($('#search-status').val()!="all");
+        setStatus = ($('#search-status').val());
     }
     var jsonCriteria = {
-        sender:$('#search-sender').val(),
-        subject:$('#search-subject').val(),
+        sender:$('#search-subject').val(),
+        subject:$('#search-sender').val(),
         email:$('#search-email').val(),
         responsible:$('#search-responsible').val(),
         msg:$('#search-content').val(),
@@ -338,6 +349,7 @@ function queryData(criteriaObject) {
                     '<tr data-idd="'+x.id+ '">' +
                     '<td>' + x.id + '</td>' +
                     '<td>' + x.sender + '</td>' +
+                    '<td>' + x.send_To + '</td>' +
                     '<td>' + x.subject + '</td>' +
                     '<td>' + x.email + '</td>' +
                     '<td>' + x.responsible + '</td>' +
@@ -345,8 +357,8 @@ function queryData(criteriaObject) {
                     '<td>' + x.level + '</td>' +
                     '<td>' + x.status + '</td>' +
                     '<td>' + x.type + '</td>' +
-                    '<td class="text-center"> <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-edit" onclick="modalEdit1('+x.id+')">edit <span class="glyphicon glyphicon-list"></button>' +
-                    ' <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"  data-target="#modal-del" onclick="modalDel1('+x.id+')">del <span class="glyphicon glyphicon-trash"></button> </td>' +
+                    '<td class="text-center"> <div> <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-edit" onclick="modalEdit1('+x.id+')">edit <span class="glyphicon glyphicon-list"></button>' +
+                    ' <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"  data-target="#modal-del" onclick="modalDel1('+x.id+')">del <span class="glyphicon glyphicon-trash"></button></div> </td>' +
                     '</tr>');
 
             }
@@ -426,6 +438,7 @@ function editSearchCustom() {
                 '<tr data-idd="'+x.id+ '">' +
                 '<td>' + x.id + '</td>' +
                 '<td>' + x.sender + '</td>' +
+                '<td>' + x.send_To + '</td>' +
                 '<td>' + x.subject + '</td>' +
                 '<td>' + x.email + '</td>' +
                 '<td>' + x.responsible + '</td>' +
@@ -433,8 +446,8 @@ function editSearchCustom() {
                 '<td>' + x.level + '</td>' +
                 '<td>' + x.status + '</td>' +
                 '<td>' + x.type + '</td>' +
-                '<td class="text-center"> <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-edit" onclick="modalEdit('+x.id+')">edit <span class="glyphicon glyphicon-list"></button>' +
-                ' <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"  data-target="#modal-del" onclick="modalDel('+x.id+')">del <span class="glyphicon glyphicon-trash"></button> </td>' +
+                '<td class="text-center"> <div><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-edit" onclick="modalEdit('+x.id+')">edit <span class="glyphicon glyphicon-list"></button>' +
+                ' <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"  data-target="#modal-del" onclick="modalDel('+x.id+')">del <span class="glyphicon glyphicon-trash"></button> </div></td>' +
                 '</tr>');
         }
     } else {
@@ -549,7 +562,7 @@ function modalDel1(id) {
     $('#del-type').text(json[indexjson].type);
     $('#del-status').text(json[indexjson].status);
     $('#del-date').text(json[indexjson].sentDate);
-    $('#del-responsible').text(json[indexjson].msg);
+    $('#del-responsible').text(json[indexjson].responsible);
 
 }
 function  AttachmentsFullName(filename) {
@@ -656,7 +669,7 @@ function findNewDataMail() {
         url: session.context + "/appUsers/findNewDataMail",
         headers: {Accept: "application/json;charset=UTF-8"},
         type: "GET",
-        data: {sender: $('#searchValue').val()},
+        data: {sender: ""},
         async: false,
         complete:function (xhr) {
             $('#modal-alert-update').modal('hide');
@@ -667,32 +680,7 @@ function findNewDataMail() {
 
         $('#modal-alert-loading').modal('hide');
     }).responseText;
-    json = JSON.parse(json);
-    console.log(json);
-    $('#tbody1').empty();
-    if (json.length > 0) {
-        let x;
-        for (x of json) {
-            console.log("x " + x);
-            console.log("json length " + json.length);
-            $('#tbody1').append('' +
-                '<tr>' +
-                '<td>' + x.id + '</td>' +
-                '<td>' + x.sender + '</td>' +
-                '<td>' + x.subject + '</td>' +
-                '<td>' + x.email + '</td>' +
-                '<td>' + x.responsible + '</td>' +
-                '<td>' + formatDate(x.sentDate) + '</td>' +
-                '<td>' + x.level + '</td>' +
-                '<td>' + x.status + '</td>' +
-                '<td>' + x.type + '</td>' +
-                '<td class="text-center"> <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-edit"  onclick="modalEdit('+x.id+')" >edit <span class="glyphicon glyphicon-list"></button>' +
-                '            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" onclick="modalDel('+x.id+')" data-target="#modal-del" >del <span class="glyphicon glyphicon-trash"></button> </td>' +
-                '</tr>');
-        }
-    } else {
-        $('#tbody1').append('<tr><td style="text-align: center;" colspan="10">No data.</td></tr>');
-    }
+    setDataSearch();
 }
 function insert() {
     var dateNow = new Date();
@@ -778,7 +766,7 @@ function findDataMail() {
         url: session.context + "/appUsers/findDataMail",
         headers: {Accept: "application/json;charset=UTF-8"},
         type: "GET",
-        data: {sender: $('#searchValue').val()},
+        data: {sender: $('#searchValueDate').val()},
         async: false
     }).done(function () {
         console.log('done')
@@ -795,6 +783,7 @@ function findDataMail() {
                 '<tr>' +
                 '<td>' + x.id + '</td>' +
                 '<td>' + x.sender + '</td>' +
+                '<td>' + x.send_To + '</td>' +
                 '<td>' + x.subject + '</td>' +
                 '<td>' + x.email + '</td>' +
                 '<td>' + x.responsible + '</td>' +
@@ -802,8 +791,8 @@ function findDataMail() {
                 '<td>' + x.level + '</td>' +
                 '<td>' + x.status + '</td>' +
                 '<td>' + x.type + '</td>' +
-                '<td class="text-center"> <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"  data-target="#modal-edit" onclick="editFindDataMail('+x.id+')" >edit <span class="glyphicon glyphicon-list"></button>' +
-                '            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-del" onclick="deleteFindDataMail('+x.id+')">del <span class="glyphicon glyphicon-trash"></button> </td>' +
+                '<td class="text-center"> <div><button type="button" class="btn btn-primary btn-sm" data-toggle="modal"  data-target="#modal-edit" onclick="editFindDataMail('+x.id+')" >edit <span class="glyphicon glyphicon-list"></button>' +
+                '            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-del" onclick="deleteFindDataMail('+x.id+')">del <span class="glyphicon glyphicon-trash"></button></div> </td>' +
                 '</tr>');
         }
     } else {
@@ -832,8 +821,8 @@ function deleteFindDataMail(id) {
 }
 function startTime(){
     var date;
-    if($('#searchValue').val()!="") {
-        var Fulltime = $('#searchValue').val().split(" - ");
+    if($('#searchValueDate').val()!="") {
+        var Fulltime = $('#searchValueDate').val().split(" - ");
         var time = Fulltime[0].split(" ");
         console.log(time[0]);
         var timeFormat = time[0].split("-");
@@ -850,8 +839,8 @@ function startTime(){
 }
 function endTime() {
     var date;
-    if($('#searchValue').val()!=""){
-        var Fulltime = $('#searchValue').val().split(" - ");
+    if($('#searchValueDate').val()!=""){
+        var Fulltime = $('#searchValueDate').val().split(" - ");
         var time = Fulltime[1].split(" ");
         console.log(time[0]);
         var timeFormat = time[0].split("-");
@@ -1032,107 +1021,6 @@ function autocomplete(inp, arr) {
     });
 
 }
-function modalEdit1(id) {
-    var json = jsonItem;
-    //ImgLine --- Nick
-    var json1 = JSON.parse(findByIdline());
-    //ImgLine --- Nick
-    var x = id;
-
-    var indexjson = 0;
-    for (var i = 0; i < json.length; i++) {
-        if (parseInt(json[i].id) == parseInt(id)) {
-            indexjson = i;
-        }
-    }
-    console.log(json[indexjson]);
-
-    $('#edit-sender').text(json[indexjson].sender);
-    $('#edit-id').text(json[indexjson].id);
-    $('#edit-subject').text(json[indexjson].subject);
-    $('#edit-email').text(json[indexjson].email);
-    $('#edit-BCC').text(json[indexjson].bcc);
-    $('#edit-CC').text(json[indexjson].cc);
-    $('#edit-date').text(formatDate(json[indexjson].sentDate));
-    $('#edit-content').text(json[indexjson].msg);
-    $('#edit-attachments').empty();
-    var filenameAll = json[indexjson].attachments;
-
-
-    $('#edit-attachmentsFullName').text(filenameAll);
-
-
-    var idline = json[indexjson].idline;
-    var type = json[indexjson].type;
-    //ImgLine --- Nick
-    if (type == "LINE") {
-        for (var j = 0; j < json1.length; j++) {
-            if (idline == json1[j].idline) {
-                console.log(json1[j].idline);
-                var textimg =textimg + ", " + json1[j].imgg;
-            }
-        }
-        console.log(textimg);
-        try {
-            filenameAll = textimg.split(", ");
-
-            $('#edit-attachments').empty();
-            let count;
-            for (count = 1; count < filenameAll.length; count++) {
-                console.log("-------------")
-                console.log(filenameAll[count]);
-                console.log("-------------")
-                filenameAll[count];
-                var filename = filenameAll[count];
-                var index = filename.lastIndexOf('.');
-                console.log(filename.length);
-                console.log(index);
-                var typeFilename = filename.substring(index, filename.length)
-                console.log(type);
-                filename = filename.substring(0, 19);
-                console.log(filename + "..." + typeFilename);
-                $('#edit-attachments').append(
-                    '' + '<button type="button"  onclick="downloadFile1(\'' + filenameAll[count] + '\')">' + filename + "..." + typeFilename + ' <span class="glyphicon glyphicon-download"></span></button>'
-                );
-            }
-        } catch (e) {
-
-        }
-    } else {
-        //ImgLine --- Nick
-        try {
-            if (filenameAll.length > 5) {
-
-                filenameAll = filenameAll.split(", ");
-
-                $('#edit-attachments').empty();
-                let count;
-                for (count = 0; count < filenameAll.length; count++) {
-                    console.log(filenameAll[count]);
-                    console.log(filenameAll.length);
-                    filenameAll[count];
-                    var filename = filenameAll[count];
-                    var index = filename.lastIndexOf('.');
-                    console.log(filename.length);
-                    console.log(index);
-                    var typeFilename = filename.substring(index, filename.length)
-                    console.log(type);
-                    filename = filename.substring(0, 19);
-                    console.log(filename + "..." + typeFilename);
-                    $('#edit-attachments').append(
-                        // '' + '<label style="text-decoration: underline" onclick="downloadFile(\'' + filenameAll[count] + '\')">' + filename+"..."+typeFilename + '<span class="glyphicon glyphicon-download"></span></label>'
-                        '' + '<button type="button"  onclick="downloadFile(\'' + filenameAll[count] + '\')">' + filename + "..." + typeFilename + ' <span class="glyphicon glyphicon-download"></span></button>'
-                    );
-                    console.log(filenameAll[count]);
-                }
-            } else {
-
-            }
-        } catch (e) {
-
-        }
-    }
-}
 
 function modalEdit1(id) {
     var json = jsonItem;
@@ -1194,7 +1082,7 @@ function modalEdit1(id) {
                 filename = filename.substring(0, 19);
                 console.log(filename + "..." + typeFilename);
                 $('#edit-attachments').append(
-                    '' + '<button type="button"  onclick="downloadFile1(\'' + filenameAll[count] + '\')">' + filename + "..." + typeFilename + ' <span class="glyphicon glyphicon-download"></span></button>'
+                    '' + '<button type="button" class="btn btn-primary btn-sm " onclick="downloadFile1(\'' + filenameAll[count] + '\')">' + filename + "..." + typeFilename + ' <span class="glyphicon glyphicon-save"></span></button>'
                 );
             }
         } catch (e) {
@@ -1223,7 +1111,7 @@ function modalEdit1(id) {
                     console.log(filename + "..." + typeFilename);
                     $('#edit-attachments').append(
                         // '' + '<label style="text-decoration: underline" onclick="downloadFile(\'' + filenameAll[count] + '\')">' + filename+"..."+typeFilename + '<span class="glyphicon glyphicon-download"></span></label>'
-                        '' + '<button type="button"  onclick="downloadFile(\'' + filenameAll[count] + '\')">' + filename + "..." + typeFilename + ' <span class="glyphicon glyphicon-download"></span></button>'
+                        '' + '<button type="button" class="btn btn-primary btn-sm " style="margin-top: 5px" onclick="downloadFile(\'' + filenameAll[count] + '\')">' + filename + "..." + typeFilename + ' <span class="glyphicon glyphicon-save"></span></button>'
                     );
                     console.log(filenameAll[count]);
                 }
@@ -1235,6 +1123,8 @@ function modalEdit1(id) {
         }
     }
 }
+
+
 function findByIdline() {
     let json = $.ajax({
         url: session.context + "/appUsers/findByIdline",

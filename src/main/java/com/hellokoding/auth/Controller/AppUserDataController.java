@@ -149,7 +149,7 @@ public class AppUserDataController {
 
     @RequestMapping(value = "/download", method = RequestMethod.GET)
     public void downloadRegisterManual(@RequestParam("filename") String filename, HttpServletResponse response) throws IOException {
-        String filePath = "/home/nick/File_mail/" + filename;
+        String filePath = "/home/pang/File_mail/" + filename;
         HttpHeaders headers = new HttpHeaders();
         String mineType = new MimetypesFileTypeMap().getContentType(filePath);
         response.setHeader("Content-disposition", "attachment; filename=" + filename);
@@ -166,7 +166,7 @@ public class AppUserDataController {
     //level-status
     @RequestMapping(value = "/download1", method = RequestMethod.GET)
     public void downloadRegisterManual1(@RequestParam("filename") String filename, HttpServletResponse response) throws IOException {
-        String filePath = "/home/nick/File_Line/" + filename;
+        String filePath = "/home/pang/File_Line/" + filename;
         HttpHeaders headers = new HttpHeaders();
         String mineType = new MimetypesFileTypeMap().getContentType(filePath);
         response.setHeader("Content-disposition", "attachment; filename=" + filename);
