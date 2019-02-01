@@ -102,10 +102,10 @@ $(document).ready(function () {
     })
     $('#btn-search-test').on('click',function () {
         setDataSearch();
-        // $('#modal-alert-loading').modal('show');
-        // setTimeout(function () {
-        //     findNewDataMail();
-        // },1000)
+        $('#modal-alert-loading').modal('show');
+        setTimeout(function () {
+            findNewDataMail();
+        },1000)
 
 
     })
@@ -285,6 +285,7 @@ function formatDate(sentDate) {
     var showDate = date[Sentdate.getDate()]+"-"+month[Sentdate.getMonth()]+"-"+Sentdate.getFullYear()+" "+Sentdate.getHours()+":"+Sentdate.getMinutes()+":"+Sentdate.getSeconds();
     return showDate;
 }
+
 function setDataSearch() {
     var setStatus;
     var setLevel;
