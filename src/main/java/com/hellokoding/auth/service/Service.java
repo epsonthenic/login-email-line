@@ -30,6 +30,8 @@ public interface Service {
 
     ResponseEntity<String> findByContent(String content);
 
+    ResponseEntity<String> masterDatakey(Long id,String code);
+
     ResponseEntity<String> findByCriteriaSize(String sender,
                                               String subject,
                                               String email,

@@ -108,6 +108,12 @@ public class AppUserDataController {
         LOGGER.info("content : {}",sender,type);
         return service.findBySenderAndType(sender,type).getBody();
     }
+
+    @RequestMapping(value = "/getkeyword", method = RequestMethod.GET)
+    public String masterDatakey(@RequestParam ("id")Long id,@RequestParam ("code")String code){
+        return service.masterDatakey(id,code).getBody();
+    }
+
     @RequestMapping(value = "/findByCriteriaSize", method = RequestMethod.GET)
     public ResponseEntity<String> findByAll(@RequestParam (value ="sender",required = false)String sender,
                                     @RequestParam (value ="subject",required = false)String subject,
@@ -149,7 +155,7 @@ public class AppUserDataController {
 
     @RequestMapping(value = "/download", method = RequestMethod.GET)
     public void downloadRegisterManual(@RequestParam("filename") String filename, HttpServletResponse response) throws IOException {
-        String filePath = "/home/pang/File_mail/" + filename;
+        String filePath = "/home/nick/File_mail/" + filename;
         HttpHeaders headers = new HttpHeaders();
         String mineType = new MimetypesFileTypeMap().getContentType(filePath);
         response.setHeader("Content-disposition", "attachment; filename=" + filename);
@@ -166,7 +172,7 @@ public class AppUserDataController {
     //level-status
     @RequestMapping(value = "/download1", method = RequestMethod.GET)
     public void downloadRegisterManual1(@RequestParam("filename") String filename, HttpServletResponse response) throws IOException {
-        String filePath = "/home/pang/File_Line/" + filename;
+        String filePath = "/home/nick/File_Line/" + filename;
         HttpHeaders headers = new HttpHeaders();
         String mineType = new MimetypesFileTypeMap().getContentType(filePath);
         response.setHeader("Content-disposition", "attachment; filename=" + filename);

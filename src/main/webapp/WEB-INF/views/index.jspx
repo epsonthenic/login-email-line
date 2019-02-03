@@ -211,14 +211,20 @@
                         <p class="float-lg-right">status : </p>
                     </div>
                     <div class="col-md-2">
-                        <select class="form-control form-control-sm" id="search-status">
-                            <option>all</option>
-                            <option>wait..</option>
-                            <option>editing..</option>
-                            <option>testing..</option>
-                            <option style="color: green">complete</option>
-
+                        <!--<tbody id="tbody1" name="tbody1">
+                    <jsp:text/>
+                    </tbody>-->
+                        <select class="form-control" id="tstatus">
+                            <jsp:text/>
                         </select>
+                        <!--<select class="form-control form-control-sm" id="search-status">-->
+                            <!--<option>all</option>-->
+                            <!--<option>wait..</option>-->
+                            <!--<option>editing..</option>-->
+                            <!--<option>testing..</option>-->
+                            <!--<option style="color: green">complete</option>-->
+
+                        <!--</select>-->
                     </div>
                     <div class="col-md-1">
                         <p class="float-lg-right">level : </p>
