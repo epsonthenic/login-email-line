@@ -5,6 +5,8 @@ var objectUtilPagination = $.extend({}, UtilPagination);
 
 $(document).ready(function () {
     getstatus();
+    getlevel();
+    gettype();
     console.log("AAAA8888");
 
     setDataSearch();
@@ -438,44 +440,48 @@ function customSearch() {
 }
 
 function getstatus() {
-    let json = $.ajax({
-        url: session.context + "/appUsers/getkeyword?id=200&code=status.list",
-        contentType: "application/json;charset=UTF-8",
-        headers: {Accept: "application/json;charset=UTF-8"},
-        type: "GET",
-        async: false
-    }).done(function () {
-    }).responseText;
-    console.log(json);
-    json = JSON.parse(json);
+    json = JSON.parse(findByStatus());
     console.log(json);
     try {
-        json = json[0].split(",");
+        // json = json[0].split(",");
         let count;
         for (count = 0; count < json.length; count++) {
-            $('#tstatus').append(
+            $('#search-status').append(
                 '<option>' + json[count] + '</option>'
             );
         }
     } catch (e) {
-
     }
-    // $('#tstatus').empty();
-    // let count;
-    // for (count = 0; count < json.length; count++) {
-    //     $('#tstatus').append('' +
-    //         '<option>' + json[count] + '</option>');
-    // }
+}
 
-
-    /*
-    $('#tstatus').empty();
-    if (json.length > 0) {
-        for (let x of json) {
-            $('#tstatus').append('' +
-                '<option>' + x.variable1 + '</option>');
+function getlevel() {
+    json = JSON.parse(findBylevel());
+    console.log(json);
+    try {
+        // json = json[0].split(",");
+        let count;
+        for (count = 0; count < json.length; count++) {
+            $('#search-level').append(
+                '<option>' + json[count] + '</option>'
+            );
         }
-    }*/
+    } catch (e) {
+    }
+}
+
+function gettype() {
+    json = JSON.parse(findBytype());
+    console.log(json);
+    try {
+        // json = json[0].split(",");
+        let count;
+        for (count = 0; count < json.length; count++) {
+            $('#search-type').append(
+                '<option>' + json[count] + '</option>'
+            );
+        }
+    } catch (e) {
+    }
 }
 
 function editSearchCustom() {
@@ -1231,6 +1237,45 @@ function findByIdline() {
         headers: {Accept: "application/json;charset=UTF-8"},
         type: "GET",
         data: {idline: ""},
+        async: false
+    }).done(function () {
+        console.log('done')
+    }).responseText;
+    return json;
+}
+
+function findByStatus() {
+    let json = $.ajax({
+        url: session.context + "/appUsers/getkeyword?id=200&code=status.list",
+        contentType: "application/json;charset=UTF-8",
+        headers: {Accept: "application/json;charset=UTF-8"},
+        type: "GET",
+        async: false
+    }).done(function () {
+        console.log('done')
+    }).responseText;
+    return json;
+}
+
+function findBylevel() {
+    let json = $.ajax({
+        url: session.context + "/appUsers/getkeyword?id=200&code=level.list",
+        contentType: "application/json;charset=UTF-8",
+        headers: {Accept: "application/json;charset=UTF-8"},
+        type: "GET",
+        async: false
+    }).done(function () {
+        console.log('done')
+    }).responseText;
+    return json;
+}
+
+function findBytype() {
+    let json = $.ajax({
+        url: session.context + "/appUsers/getkeyword?id=200&code=type.list",
+        contentType: "application/json;charset=UTF-8",
+        headers: {Accept: "application/json;charset=UTF-8"},
+        type: "GET",
         async: false
     }).done(function () {
         console.log('done')

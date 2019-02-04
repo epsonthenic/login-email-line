@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/main/webapp/scripts/appUser/load.js" line="745" mnemonic="1" />
-    <bookmark url="file://$PROJECT_DIR$/src/main/webapp/scripts/appUser/load.js" line="1009" mnemonic="2" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/webapp/scripts/appUser/load.js" line="751" mnemonic="1" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/webapp/scripts/appUser/load.js" line="1015" mnemonic="2" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ecd82e05-144d-4ce6-8c6e-a55462d3f840" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hellokoding/auth/Controller/AppUserDataController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hellokoding/auth/Controller/AppUserDataController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hellokoding/auth/service/AppUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hellokoding/auth/service/AppUserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hellokoding/auth/service/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hellokoding/auth/service/Service.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jspx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jspx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/scripts/appUser/load.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/scripts/appUser/load.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hellokoding/auth/Controller/AppUserDataController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hellokoding/auth/Controller/AppUserDataController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,29 +33,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/hellokoding/auth/Controller/AppUserDataController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218">
-              <caret line="109" column="5" lean-forward="true" selection-start-line="109" selection-start-column="5" selection-end-line="109" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/hellokoding/auth/ConstantVariable.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/scripts/appUser/load.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="93">
-              <caret line="1161" column="43" lean-forward="true" selection-start-line="1161" selection-start-column="43" selection-end-line="1161" selection-end-column="43" />
+            <state relative-caret-position="178">
+              <caret line="473" column="22" lean-forward="true" selection-start-line="473" selection-start-column="22" selection-end-line="473" selection-end-column="22" />
               <folding>
                 <element signature="n#!!block;n#findBySenderAndType#0" />
                 <element signature="n#!!block;n#showAll#0" />
@@ -93,26 +69,7 @@
                 <element signature="n#style#0;n#label#0;n#!!top" expanded="true" />
                 <element signature="n#!!block;n#autocomplete#0" />
                 <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
-                <element signature="n#!!block;n#findByIdline#0" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/hellokoding/auth/service/AppUserServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="98">
-              <caret line="254" column="53" selection-start-line="254" selection-start-column="34" selection-end-line="254" selection-end-column="53" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/hellokoding/auth/service/Service.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="32" column="60" selection-start-line="32" selection-start-column="56" selection-end-line="32" selection-end-column="60" />
             </state>
           </provider>
         </entry>
@@ -120,11 +77,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jspx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="216" column="64" selection-start-line="216" selection-start-column="57" selection-end-line="216" selection-end-column="64" />
+            <state relative-caret-position="148">
+              <caret line="390" column="111" selection-start-line="390" selection-start-column="101" selection-end-line="390" selection-end-column="111" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" />
-                <element signature="n#div#1;n#div#0;n#!!top" />
                 <element signature="n#div#2;n#div#0;n#!!top" />
                 <element signature="n#div#3;n#div#0;n#!!top" />
                 <element signature="n#div#4;n#div#0;n#!!top" />
@@ -133,6 +89,24 @@
                 <element signature="n#div#7;n#div#0;n#!!top" />
                 <element signature="n#div#8;n#div#0;n#!!top" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/hellokoding/auth/service/AppUserServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3720">
+              <caret line="254" column="53" selection-start-line="254" selection-start-column="34" selection-end-line="254" selection-end-column="53" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/hellokoding/auth/service/Service.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="32" column="60" selection-start-line="32" selection-start-column="56" selection-end-line="32" selection-end-column="60" />
             </state>
           </provider>
         </entry>
@@ -157,11 +131,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>edit</find>
-      <find>update</find>
-      <find>home</find>
-      <find>glyphicon</find>
-      <find>searchValue</find>
       <find>auto</find>
       <find>clear</find>
       <find>btn-c</find>
@@ -187,6 +156,11 @@
       <find>tbody1</find>
       <find>findBySenderAndType</find>
       <find>editFindDataMail</find>
+      <find>search-level</find>
+      <find>search-type</find>
+      <find>add-status</find>
+      <find>getlevel</find>
+      <find>getstatus</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -227,8 +201,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -426,7 +400,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548869504334" />
-    <property name="last_opened_file_path" value="$USER_HOME$/IdeaProjects/frone" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -469,18 +443,19 @@
       <workItem from="1549119824763" duration="598000" />
       <workItem from="1549188998123" duration="10000" />
       <workItem from="1549191943108" duration="1263000" />
-      <workItem from="1549205586403" duration="7344000" />
+      <workItem from="1549205586403" duration="7488000" />
+      <workItem from="1549244190083" duration="4445000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39782000" />
+    <option name="totallyTimeSpent" value="44371000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="41" y="-4" width="1325" height="772" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.29397967" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.29867083" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -496,7 +471,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Spring" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.35658914" />
+      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.18139535" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
@@ -508,10 +483,10 @@
       <window_info anchor="right" id="Maven" order="3" />
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Database" order="6" weight="0.32994527" />
+      <window_info active="true" anchor="right" id="Database" order="6" visible="true" weight="0.016419077" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
-      <window_info anchor="right" id="Bean Validation" order="9" />
+      <window_info anchor="right" id="Bean Validation" order="9" weight="0.32994527" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -652,13 +627,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/hellokoding/auth/WebSecurityConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="211">
@@ -680,6 +648,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/scripts/jquery-3.3.1.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="481" column="19" selection-start-line="481" selection-start-column="19" selection-end-line="481" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hellokoding/auth/service/AppUserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3720">
+          <caret line="254" column="53" selection-start-line="254" selection-start-column="34" selection-end-line="254" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hellokoding/auth/service/Service.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" column="60" selection-start-line="32" selection-start-column="56" selection-end-line="32" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/hellokoding/auth/ConstantVariable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -687,34 +683,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hellokoding/auth/service/AppUserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="254" column="53" selection-start-line="254" selection-start-column="34" selection-end-line="254" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hellokoding/auth/service/Service.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="32" column="60" selection-start-line="32" selection-start-column="56" selection-end-line="32" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/hellokoding/auth/Controller/AppUserDataController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="218">
-          <caret line="109" column="5" lean-forward="true" selection-start-line="109" selection-start-column="5" selection-end-line="109" selection-end-column="5" />
+          <caret line="109" column="5" selection-start-line="109" selection-start-column="5" selection-end-line="109" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jspx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="216" column="64" selection-start-line="216" selection-start-column="57" selection-end-line="216" selection-end-column="64" />
+        <state relative-caret-position="148">
+          <caret line="390" column="111" selection-start-line="390" selection-start-column="101" selection-end-line="390" selection-end-column="111" />
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" />
-            <element signature="n#div#1;n#div#0;n#!!top" />
             <element signature="n#div#2;n#div#0;n#!!top" />
             <element signature="n#div#3;n#div#0;n#!!top" />
             <element signature="n#div#4;n#div#0;n#!!top" />
@@ -726,17 +707,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/scripts/jquery-3.3.1.min.js">
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="481" column="19" selection-start-line="481" selection-start-column="19" selection-end-line="481" selection-end-column="19" />
+        <state relative-caret-position="15">
+          <caret line="17174" column="12" selection-start-line="17174" selection-start-column="12" selection-end-line="17174" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/scripts/appUser/load.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="1161" column="43" lean-forward="true" selection-start-line="1161" selection-start-column="43" selection-end-line="1161" selection-end-column="43" />
+        <state relative-caret-position="178">
+          <caret line="473" column="22" lean-forward="true" selection-start-line="473" selection-start-column="22" selection-end-line="473" selection-end-column="22" />
           <folding>
             <element signature="n#!!block;n#findBySenderAndType#0" />
             <element signature="n#!!block;n#showAll#0" />
@@ -768,7 +749,6 @@
             <element signature="n#style#0;n#label#0;n#!!top" expanded="true" />
             <element signature="n#!!block;n#autocomplete#0" />
             <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
-            <element signature="n#!!block;n#findByIdline#0" />
           </folding>
         </state>
       </provider>

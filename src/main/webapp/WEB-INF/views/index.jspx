@@ -214,7 +214,7 @@
                         <!--<tbody id="tbody1" name="tbody1">
                     <jsp:text/>
                     </tbody>-->
-                        <select class="form-control" id="tstatus">
+                        <select class="form-control" id="search-status">
                             <jsp:text/>
                         </select>
                         <!--<select class="form-control form-control-sm" id="search-status">-->
@@ -230,24 +230,30 @@
                         <p class="float-lg-right">level : </p>
                     </div>
                     <div class="col-md-1">
-                        <select class="form-control form-control-sm" id="search-level">
-                            <option>all</option>
-                            <option>0</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
+                        <select class="form-control" id="search-level">
+                            <jsp:text/>
                         </select>
+                        <!--<select class="form-control form-control-sm" id="search-level">-->
+                            <!--<option>all</option>-->
+                            <!--<option>0</option>-->
+                            <!--<option>1</option>-->
+                            <!--<option>2</option>-->
+                            <!--<option>3</option>-->
+                        <!--</select>-->
                     </div>
                     <div class="col-md-1">
                         <p class="float-lg-right">type : </p>
                     </div>
                     <div class="col-md-2">
                         <select class="form-control form-control-sm" style="width: 100%" id="search-type">
-                            <option style="color: #00b0ff">all</option>
-                            <option style="color: #00b0ff">email</option>
-                            <option style="color: green">LINE</option>
-
+                            <jsp:text/>
                         </select>
+                        <!--<select class="form-control form-control-sm" style="width: 100%" id="search-type">-->
+                            <!--<option style="color: #00b0ff">all</option>-->
+                            <!--<option style="color: #00b0ff">email</option>-->
+                            <!--<option style="color: green">LINE</option>-->
+
+                        <!--</select>-->
                     </div>
                 </div>
 
@@ -383,12 +389,15 @@
                                                 </div>
                                                 <div class="col-md-5">
                                                     <select class="form-control form-control-sm" id="add-status">
-                                                        <option>wait..</option>
-                                                        <option>editing..</option>
-                                                        <option>testing..</option>
-                                                        <option style="color: green">complete</option>
-
+                                                        <jsp:text/>
                                                     </select>
+                                                    <!--<select class="form-control form-control-sm" id="add-status">-->
+                                                        <!--<option>wait..</option>-->
+                                                        <!--<option>editing..</option>-->
+                                                        <!--<option>testing..</option>-->
+                                                        <!--<option style="color: green">complete</option>-->
+
+                                                    <!--</select>-->
                                                 </div>
                                             </div>
                                             <div class="row">
