@@ -248,22 +248,23 @@ function showAll() {
 
             $('#tbody1').append('' +
                 '<tr data-idd="' + x.id + '">' +
-                '<td>' + x.id + '</td>' +
-                '<td>' + x.sender + '</td>' +
-                '<td>' + x.send_To + '</td>' +
-                '<td>' + x.subject + '</td>' +
-                '<td>' + x.email + '</td>' +
-                '<td>' + x.responsible + '</td>' +
-                '<td>' + formatDate(x.sentDate) + '</td>' +
-                '<td>' + x.level + '</td>' +
-                '<td>' + x.status + '</td>' +
-                '<td>' + x.type + '</td>' +
+                '<td style="text-align: center;font-size: 95%">' + x.id + '</td>' +
+                '<td>'+'<span class="glyphicon glyphicon-star-empty" aria-hidden="true">'+'</span>'+'</td>' +
+                '<td style="text-align: center;font-size: 95%">' + x.sender + '</td>' +
+                '<td style="text-align: center;font-size: 95%">' + x.send_To + '</td>' +
+                '<td style="text-align: center;font-size: 95%">' + x.subject + '</td>' +
+                '<td style="text-align: center;font-size: 95%">' + x.email + '</td>' +
+                '<td style="text-align: center;font-size: 95%">' + x.responsible + '</td>' +
+                '<td style="text-align: center;font-size: 95%">' + formatDate(x.sentDate) + '</td>' +
+                '<td style="text-align: center;font-size: 95%">' + x.level + '</td>' +
+                '<td style="text-align: center;font-size: 95%">' + x.status + '</td>' +
+                '<td style="text-align: center;font-size: 95%">' + x.type + '</td>' +
                 '<td class="text-center"> <div><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-edit" onclick="editFindDataMail(' + x.id + ')">edit <span class="glyphicon glyphicon-list"></button>' +
                 ' <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"  data-target="#modal-del" onclick="deleteFindDataMail(' + x.id + ')">del <span class="glyphicon glyphicon-trash"></button> </div> </td>' +
                 '</tr>');
         }
     } else {
-        $('#tbody1').append('<tr><td style="text-align: center;" colspan="10">No data.</td></tr>');
+        $('#tbody1').append('<tr><td style="text-align: center;font-size: 95%;" colspan="10">No data.</td></tr>');
     }
     return jsonShowAll;
 }
@@ -388,23 +389,24 @@ function queryData(criteriaObject) {
                 console.log("item length " + item.length);
                 $('#tbody1').append('' +
                     '<tr data-idd="' + x.id + '">' +
-                    '<td>' + x.id + '</td>' +
-                    '<td>' + x.sender + '</td>' +
-                    '<td>' + x.send_To + '</td>' +
-                    '<td>' + x.subject + '</td>' +
-                    '<td>' + x.email + '</td>' +
-                    '<td>' + x.responsible + '</td>' +
-                    '<td>' + formatDate(x.sentDate) + '</td>' +
-                    '<td>' + x.level + '</td>' +
-                    '<td>' + x.status + '</td>' +
-                    '<td>' + x.type + '</td>' +
+                    '<td style="text-align: center;font-size: 95%">' + x.id + '</td>' +
+                    '<td>'+'<span class="glyphicon glyphicon-star-empty" aria-hidden="true">'+'</span>'+'</td>' +
+                    '<td style="text-align: center;font-size: 95%">' + x.sender + '</td>' +
+                    '<td style="text-align: center;font-size: 95%">' + x.send_To + '</td>' +
+                    '<td style="text-align: center;font-size: 95%">' + x.subject + '</td>' +
+                    '<td style="text-align: center;font-size: 95%">' + x.email + '</td>' +
+                    '<td style="text-align: center;font-size: 95%">' + x.responsible + '</td>' +
+                    '<td style="text-align: center;font-size: 95%">' + formatDate(x.sentDate) + '</td>' +
+                    '<td style="text-align: center;font-size: 95%">' + x.level + '</td>' +
+                    '<td style="text-align: center;font-size: 95%">' + x.status + '</td>' +
+                    '<td style="text-align: center;font-size: 95%">' + x.type + '</td>' +
                     '<td class="text-center"> <div> <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-edit" onclick="modalEdit1(' + x.id + ')">edit <span class="glyphicon glyphicon-list"></button>' +
                     ' <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"  data-target="#modal-del" onclick="modalDel1(' + x.id + ')">del <span class="glyphicon glyphicon-trash"></button></div> </td>' +
                     '</tr>');
 
             }
         } else {
-            $('#tbody1').append('<tr><td style="text-align: center;" colspan="10">No data.</td></tr>');
+            $('#tbody1').append('<tr><td style="text-align: center;font-size: 95%;" colspan="10">No data.</td></tr>');
         }
 
 
@@ -476,11 +478,21 @@ function getstatusEdit() {
     json = JSON.parse(findByStatus());
     console.log(json);
     try {
-        // json = json[0].split(",");
+        json = json[0].split(",");
         let count;
+        var colornum = 360;
+        var colorrun = 1;
         for (count = 0; count < json.length; count++) {
+            if(colorrun = 1){
+                colornum = colornum - 20;
+                if(colornum <= 0 ){
+                    colornum = 360;
+                    colorrun = 1;
+                }
+            }
+            console.log(colornum);
             $('#edit2-status').append(
-                '<option>' + json[count] + '</option>'
+                '<option style="color: hsl('+colornum+', 100%,50%);font-size: 15px">' + json[count] + '</option>'
             );
         }
     } catch (e) {
@@ -491,11 +503,21 @@ function getlevelEdit() {
     json = JSON.parse(findBylevel());
     console.log(json);
     try {
-        // json = json[0].split(",");
+        json = json[0].split(",");
         let count;
+        var colornum = 360;
+        var colorrun = 1;
         for (count = 0; count < json.length; count++) {
+            if(colorrun = 1){
+                colornum = colornum - 20;
+                if(colornum <= 0 ){
+                    colornum = 360;
+                    colorrun = 1;
+                }
+            }
+            console.log(colornum);
             $('#edit2-level').append(
-                '<option>' + json[count] + '</option>'
+                '<option style="color: hsl('+colornum+', 100%,50%);font-size: 15px">' + json[count] + '</option>'
             );
         }
     } catch (e) {
@@ -505,11 +527,21 @@ function gettypeEdit() {
     json = JSON.parse(findBytype());
     console.log(json);
     try {
-        // json = json[0].split(",");
+        json = json[0].split(",");
         let count;
+        var colornum = 360;
+        var colorrun = 1;
         for (count = 0; count < json.length; count++) {
+            if(colorrun = 1){
+                colornum = colornum - 20;
+                if(colornum <= 0 ){
+                    colornum = 360;
+                    colorrun = 1;
+                }
+            }
+            console.log(colornum);
             $('#edit2-type').append(
-                '<option>' + json[count] + '</option>'
+                '<option style="color: hsl('+colornum+', 100%,50%);font-size: 15px">' + json[count] + '</option>'
             );
         }
     } catch (e) {
@@ -520,11 +552,21 @@ function getstatus() {
     json = JSON.parse(findByStatus());
     console.log(json);
     try {
-        // json = json[0].split(",");
+        json = json[0].split(",");
         let count;
+        var colornum = 360;
+        var colorrun = 1;
         for (count = 0; count < json.length; count++) {
+            if(colorrun = 1){
+                colornum = colornum - 20;
+                if(colornum <= 0 ){
+                    colornum = 360;
+                    colorrun = 1;
+                }
+            }
+            console.log(colornum);
             $('#search-status').append(
-                '<option>' + json[count] + '</option>'
+                '<option style="color: hsl('+colornum+', 100%,50%);font-size: 15px">' + json[count] + '</option>'
             );
         }
     } catch (e) {
@@ -537,11 +579,21 @@ function getlevel() {
     json = JSON.parse(findBylevel());
     console.log(json);
     try {
-        // json = json[0].split(",");
+        json = json[0].split(",");
         let count;
+        var colornum = 360;
+        var colorrun = 1;
         for (count = 0; count < json.length; count++) {
-            $('#search-level').append(
-                '<option>' + json[count] + '</option>'
+            if(colorrun = 1){
+                colornum = colornum - 20;
+                if(colornum <= 0 ){
+                    colornum = 360;
+                    colorrun = 1;
+                }
+            }
+            console.log(colornum);
+            $('#search-level').append(''+
+                '<option style="color: hsl('+colornum+', 100%,50%);font-size: 15px">' + json[count] + '</option>'
             );
         }
     } catch (e) {
@@ -552,11 +604,21 @@ function gettype() {
     json = JSON.parse(findBytype());
     console.log(json);
     try {
-        // json = json[0].split(",");
+        json = json[0].split(",");
         let count;
+        var colornum = 360;
+        var colorrun = 1;
         for (count = 0; count < json.length; count++) {
+            if(colorrun = 1){
+                colornum = colornum - 20;
+                if(colornum <= 0 ){
+                    colornum = 360;
+                    colorrun = 1;
+                }
+            }
+            console.log(colornum);
             $('#search-type').append(
-                '<option>' + json[count] + '</option>'
+                '<option style="color: hsl('+colornum+', 100%,50%);font-size: 15px">' + json[count] + '</option>'
             );
         }
     } catch (e) {
@@ -576,22 +638,23 @@ function editSearchCustom() {
             console.log("json length " + json.length);
             $('#tbody1').append('' +
                 '<tr data-idd="' + x.id + '">' +
-                '<td>' + x.id + '</td>' +
-                '<td>' + x.sender + '</td>' +
-                '<td>' + x.send_To + '</td>' +
-                '<td>' + x.subject + '</td>' +
-                '<td>' + x.email + '</td>' +
-                '<td>' + x.responsible + '</td>' +
-                '<td>' + formatDate(x.sentDate) + '</td>' +
-                '<td>' + x.level + '</td>' +
-                '<td>' + x.status + '</td>' +
-                '<td>' + x.type + '</td>' +
+                '<td style="text-align: center;font-size: 95%">' + x.id + '</td>' +
+                '<td>'+'<span class="glyphicon glyphicon-star-empty" aria-hidden="true">'+'</span>'+'</td>' +
+                '<td style="text-align: center;font-size: 95%">' + x.sender + '</td>' +
+                '<td style="text-align: center;font-size: 95%">' + x.send_To + '</td>' +
+                '<td style="text-align: center;font-size: 95%">' + x.subject + '</td>' +
+                '<td style="text-align: center;font-size: 95%">' + x.email + '</td>' +
+                '<td style="text-align: center;font-size: 95%">' + x.responsible + '</td>' +
+                '<td style="text-align: center;font-size: 95%">' + formatDate(x.sentDate) + '</td>' +
+                '<td style="text-align: center;font-size: 95%">' + x.level + '</td>' +
+                '<td style="text-align: center;font-size: 95%">' + x.status + '</td>' +
+                '<td style="text-align: center;font-size: 95%">' + x.type + '</td>' +
                 '<td class="text-center"> <div><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-edit" onclick="modalEdit(' + x.id + ')">edit <span class="glyphicon glyphicon-list"></button>' +
                 ' <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"  data-target="#modal-del" onclick="modalDel(' + x.id + ')">del <span class="glyphicon glyphicon-trash"></button> </div></td>' +
                 '</tr>');
         }
     } else {
-        $('#tbody1').append('<tr><td style="text-align: center;" colspan="10">No data.</td></tr>');
+        $('#tbody1').append('<tr><td style="text-align: center;font-size: 95%;" colspan="10">No data.</td></tr>');
     }
 
 }
@@ -962,22 +1025,23 @@ function findDataMail() {
             console.log("json length " + json.length);
             $('#tbody1').append('' +
                 '<tr>' +
-                '<td>' + x.id + '</td>' +
-                '<td>' + x.sender + '</td>' +
-                '<td>' + x.send_To + '</td>' +
-                '<td>' + x.subject + '</td>' +
-                '<td>' + x.email + '</td>' +
-                '<td>' + x.responsible + '</td>' +
-                '<td>' + formatDate(x.sentDate) + '</td>' +
-                '<td>' + x.level + '</td>' +
-                '<td>' + x.status + '</td>' +
-                '<td>' + x.type + '</td>' +
+                '<td style="text-align: center;font-size: 95%">' + x.id + '</td>' +
+                '<td>'+'<span class="glyphicon glyphicon-star-empty" aria-hidden="true">'+'</span>'+'</td>' +
+                '<td style="text-align: center;font-size: 95%">' + x.sender + '</td>' +
+                '<td style="text-align: center;font-size: 95%">' + x.send_To + '</td>' +
+                '<td style="text-align: center;font-size: 95%">' + x.subject + '</td>' +
+                '<td style="text-align: center;font-size: 95%">' + x.email + '</td>' +
+                '<td style="text-align: center;font-size: 95%">' + x.responsible + '</td>' +
+                '<td style="text-align: center;font-size: 95%">' + formatDate(x.sentDate) + '</td>' +
+                '<td style="text-align: center;font-size: 95%">' + x.level + '</td>' +
+                '<td style="text-align: center;font-size: 95%">' + x.status + '</td>' +
+                '<td style="text-align: center;font-size: 95%">' + x.type + '</td>' +
                 '<td class="text-center"> <div><button type="button" class="btn btn-primary btn-sm" data-toggle="modal"  data-target="#modal-edit" onclick="editFindDataMail(' + x.id + ')" >edit <span class="glyphicon glyphicon-list"></button>' +
                 '            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-del" onclick="deleteFindDataMail(' + x.id + ')">del <span class="glyphicon glyphicon-trash"></button></div> </td>' +
                 '</tr>');
         }
     } else {
-        $('#tbody1').append('<tr><td style="text-align: center;" colspan="10">No data.</td></tr>');
+        $('#tbody1').append('<tr><td style="text-align: center;font-size: 95%;" colspan="10">No data.</td></tr>');
     }
 
 }

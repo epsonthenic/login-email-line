@@ -12,6 +12,61 @@
 
     <title>LOGIN</title>
     <style>
+        /*body{*/
+        /*background-image: linear-gradient(to top, #09203f 0%, #537895 100%);*/
+        /*min-height:100vh;*/
+        /*display:flex;*/
+        /*justify-content:center;*/
+        /*}*/
+        body {
+            width: 100%;
+            min-height: 100vh;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
+            background-size: 400% 400%;
+            -webkit-animation: Gradient 15s ease infinite;
+            -moz-animation: Gradient 15s ease infinite;
+            animation: Gradient 15s ease infinite;
+        }
+
+        @-webkit-keyframes Gradient {
+            0% {
+                background-position: 0% 50%
+            }
+            50% {
+                background-position: 100% 50%
+            }
+            100% {
+                background-position: 0% 50%
+            }
+        }
+
+        @-moz-keyframes Gradient {
+            0% {
+                background-position: 0% 50%
+            }
+            50% {
+                background-position: 100% 50%
+            }
+            100% {
+                background-position: 0% 50%
+            }
+        }
+
+        @keyframes Gradient {
+            0% {
+                background-position: 0% 50%
+            }
+            50% {
+                background-position: 100% 50%
+            }
+            100% {
+                background-position: 0% 50%
+            }
+        }
+
         .h1top {
             text-align: center;
             margin-top: 70px;
@@ -22,6 +77,104 @@
             mix-blend-mode: multiply;
         }
 
+        @import url('https://fonts.googleapis.com/css?family=Playfair+Display:900|Raleway:300,800');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            overflow-x: hidden;
+        }
+
+
+        .clipped {
+            display: flex;
+            align-items: flex-end;
+            height: 100%;
+            line-height: 1.2;
+            overflow: hidden;
+            background: url("https://img.live/images/2019/02/06/team-3373638_128011.jpg") no-repeat #fff;
+        }
+
+        input {
+            display: block;
+        }
+
+        .header {
+            height: 350px;
+            /*height: 100%;*/
+            width: 700px;
+            overflow: hidden;
+            background-image: url("https://img.live/images/2019/02/06/team-3373638_128011.jpg") no-repeat #fff;
+            background-size: cover;
+            margin: 20px 20px 0 20px;
+            border-radius: 8px;
+            box-shadow: 2px 3px 20px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        .container {
+            display: block;
+            width: 100%;
+            float: left;
+            max-width: 800px;
+        }
+
+        .upload {
+            position: fixed;
+            right: 170px;
+            top: 20px;
+            width: 25%;
+            margin-left: 10%;
+            display: block;
+            float: left;
+            overflow: visible;
+        }
+
+        input[name=titleInput] {
+            width: 100%;
+            height: 50px;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            font-size: 18px;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 300;
+            border-radius: 3px;
+            border: 0;
+            color: black;
+            box-shadow: 2px 1px 10px 0 rgba(0, 0, 0, 0.5);
+        }
+
+        content {
+            display: block;
+            padding: 30px;
+            color: #fff;
+            opacity: .8;
+            padding: 30px 15%;
+        }
+
+        h2 {
+            font-size: 60px;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 800;
+            letter-spacing: 0.5pt;
+        }
+
+        hr {
+            margin: 10px 0 10px 0;
+            width: 30px;
+            height: 6px;
+            background-color: #2980b9;
+            border: 0;
+            text-align: left;
+        }
+
+        p {
+            font-size: .9em;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 300;
+            overflow: hidden;
+        }
         ::placeholder {
             color: rgb(255, 11, 11);
             font-size: 20px;
@@ -46,45 +199,41 @@
         .ghost-button-rounded-corners:active {
             color: rgba(255, 255, 255, 0.74);
         }
-
-        .text-center-1 {
-            text-align: center;
-        }
-
-        .margin-100 {
-            margin-top: 100px;
-        }
-
-        .margin-80 {
-
-            margin: 30px;
-        }
-
     </style>
-    <body style="background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%)">
-    <div class="container" >
-        <form method="POST" action="${contextPath}/login" class="form-signin">
-            <div class="text-center-1 margin-100">
-                <h1 class="h1top"><strong>HELPDESK SYSTEM FORM</strong></h1>
-            </div>
-            <div class="form-group ${error != null ? 'has-error' : ''}" style="margin: 50px">
-                <div class="offset-md-3 col-md-6">
-                <div style="margin-top: 20px">
-                    <input name="username" type="text" class="form-control" style="height: 45px;font-size: 20px" placeholder="Username"
-                           autofocus="true"/>
-                </div>
-                <div style="margin-top: 20px">
-                    <input name="password" type="password" class="form-control" style="height: 45px;font-size: 20px" placeholder="Password"/>
-                    <span>${error}</span>
-                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                </div>
-                </div>
-                <div style="text-align: center;margin-top: 30px;">
-                    <button class="btn ghost-button-rounded-corners" type="submit"><h5><strong style="font-size: 33px">Login</strong></h5></button>
-                    <!--<h4 class="text-center"><a href="${contextPath}/registration">Create an account</a></h4>-->
-                </div>
-            </div>
-        </form>
+    <body>
+    <form method="POST" action="${contextPath}/login" class="form-signin">
+    <div class="row">
+        <div class="col-sm-12" style="margin-top: 40px;text-align: center">
+            <stronq class="h1top">HELPDESK SYSTEM FORM</stronq>
+        </div>
     </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="container">
+                <div class="header">
+                    <div class="clipped"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group ${error != null ? 'has-error' : ''}" style="margin: 50px">
+        <div class="upload" style="margin-top: 200px;text-align: center">
+            <div style="margin-top: 20px">
+            <input class="form-control" name="username" type="Username" placeholder="Username"/>
+            </div>
+            <div style="margin-top: 20px">
+            <input class="form-control" name="password" type="password" placeholder="password"/>
+                <span>${error}</span>
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+            </div>
+            <div style="margin-top: 20px">
+                <button class="btn ghost-button-rounded-corners" type="submit"><h5><strong
+                        style="font-size: 33px">Login</strong></h5></button>
+            </div>
+        </div>
+        </div>
+    </div>
+    </form>
     </body>
 </div>
