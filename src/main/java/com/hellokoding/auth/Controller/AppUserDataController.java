@@ -51,8 +51,8 @@ public class AppUserDataController {
     }
 
     @RequestMapping(value = "/getReply", method = RequestMethod.GET)
-    public void replyMessage(@RequestParam("messageNum") int messageNum) {
-        service.replyMessage(messageNum).getBody();
+    public void replyMessage(@RequestParam("messageNum") int messageNum,@RequestParam("id") Long id) {
+        service.replyMessage(messageNum,id).getBody();
     }
 
     @RequestMapping(value = "/update/{id}", method = RequestMethod.PUT)

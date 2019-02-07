@@ -58,7 +58,7 @@ public interface Service {
 
     ResponseEntity<String> findBySenderAndType(String sender,String type);
 
-    ResponseEntity<String> replyMessage(int messageNum);
+    ResponseEntity<String> replyMessage(int messageNum , Long id);
 
 
     //ResponseEntity<String> findByAll(String findByAll);

@@ -151,7 +151,8 @@ function replyMessage(id) {
         url: session.context + "/appUsers/getReply",
         headers: {Accept: "application/json;charset=UTF-8"},
         type: "GET",
-        data: {messageNum: jsonMess[indexjson].messageNum},
+        data: {messageNum: jsonMess[indexjson].messageNum,
+                id: jsonMess[indexjson].id},
         async: false,
         complete: function (xhr) {
             $('#modal-alert-update').modal('hide');
