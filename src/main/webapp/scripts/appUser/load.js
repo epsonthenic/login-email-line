@@ -8,8 +8,13 @@ $(document).ready(function () {
     getlevel();
     gettype();
     console.log("AAAA8888");
+    gettypeEdit();
+    getstatusEdit();
+    getlevelEdit();
+
 
     setDataSearch();
+
 
 
     $('#txt-modal-calendar').daterangepicker({
@@ -87,13 +92,13 @@ $(document).ready(function () {
         deleteID();
         setDataSearch();
     })
-    $('#btn-search').on('click', function () {
-        $('#modal-alert-loading').modal('show');
-        setTimeout(function () {
-            findNewDataMail();
-        }, 1000)
-
-    })
+    // $('#btn-search').on('click', function () {
+    //     $('#modal-alert-loading').modal('show');
+    //     setTimeout(function () {
+    //         findNewDataMail();
+    //     }, 1000)
+    //
+    // })
     $('#modal-find').on('click', function () {
         console.log("btn");
         customSearch();
@@ -106,6 +111,9 @@ $(document).ready(function () {
     })
     $('#btn-search-test').on('click', function () {
         setDataSearch();
+    })
+    $('#btn-newLog-text').on('click', function () {
+
         $('#modal-alert-loading').modal('show');
         setTimeout(function () {
             findNewDataMail();
@@ -126,6 +134,31 @@ $(document).ready(function () {
 });
 
 //===============================================================
+
+function replyMessage(id) {
+    var jsonMess = jsonItem;
+    var indexjson = 0;
+    for (var i = 0; i < jsonMess.length; i++) {
+        if (parseInt(jsonMess[i].id) == parseInt(id)) {
+            indexjson = i;
+        }
+    }
+    let json = $.ajax({
+        url: session.context + "/appUsers/getReply",
+        headers: {Accept: "application/json;charset=UTF-8"},
+        type: "GET",
+        data: {messageNum: jsonMess[indexjson].messageNum},
+        async: false,
+        complete: function (xhr) {
+            $('#modal-alert-update').modal('hide');
+            console.log("complete")
+        }
+    }).done(function () {
+        console.log('done')
+
+        $('#modal-alert-loading').modal('hide');
+    }).responseText;
+}
 
 function findBySenderAndType() {
     var x;
@@ -439,6 +472,50 @@ function customSearch() {
 
 }
 
+function getstatusEdit() {
+    json = JSON.parse(findByStatus());
+    console.log(json);
+    try {
+        // json = json[0].split(",");
+        let count;
+        for (count = 0; count < json.length; count++) {
+            $('#edit2-status').append(
+                '<option>' + json[count] + '</option>'
+            );
+        }
+    } catch (e) {
+    }
+}
+
+function getlevelEdit() {
+    json = JSON.parse(findBylevel());
+    console.log(json);
+    try {
+        // json = json[0].split(",");
+        let count;
+        for (count = 0; count < json.length; count++) {
+            $('#edit2-level').append(
+                '<option>' + json[count] + '</option>'
+            );
+        }
+    } catch (e) {
+    }
+}
+function gettypeEdit() {
+    json = JSON.parse(findBytype());
+    console.log(json);
+    try {
+        // json = json[0].split(",");
+        let count;
+        for (count = 0; count < json.length; count++) {
+            $('#edit2-type').append(
+                '<option>' + json[count] + '</option>'
+            );
+        }
+    } catch (e) {
+    }
+}
+
 function getstatus() {
     json = JSON.parse(findByStatus());
     console.log(json);
@@ -453,6 +530,8 @@ function getstatus() {
     } catch (e) {
     }
 }
+
+
 
 function getlevel() {
     json = JSON.parse(findBylevel());
@@ -681,9 +760,18 @@ function formatToUpdate(dateString) {
 }
 
 function update() {
+    let id = $('#edit2-id').html();
+    var json = jsonItem;
+    var indexjson = 0;
+    for (var i = 0; i < json.length; i++) {
+        if (parseInt(json[i].id) == parseInt(id)) {
+            indexjson = i;
+        }
+    }
+    replyMessage(id)
     console.log("Update")
     var date = $('#edit-date').html();
-    let id = $('#edit2-id').html();
+
     console.log($('#edit-attachmentsFullName').text());
     var jsonData = {
         sender: $('#edit2-sender').val(),
@@ -697,7 +785,9 @@ function update() {
         level: $('#edit2-level').val(),
         status: $('#edit2-status').val(),
         type: $('#edit2-type').val(),
-        attachments: $('#edit-attachmentsFullName').text()
+        attachments: $('#edit-attachmentsFullName').text(),
+        send_To:json[indexjson].send_To,
+        messageNum: json[indexjson].messageNum
     }
     console.log("json :", jsonData);
     //console.log(jsonData.sentDate);

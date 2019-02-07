@@ -58,6 +58,8 @@ public interface Service {
 
     ResponseEntity<String> findBySenderAndType(String sender,String type);
 
+    ResponseEntity<String> replyMessage(int messageNum);
+
 
     //ResponseEntity<String> findByAll(String findByAll);
     /*ResponseEntity<String> findNewDataMail();

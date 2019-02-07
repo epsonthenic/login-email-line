@@ -50,6 +50,11 @@ public class AppUserDataController {
         service.delete(id);
     }
 
+    @RequestMapping(value = "/getReply", method = RequestMethod.GET)
+    public void replyMessage(@RequestParam("messageNum") int messageNum) {
+        service.replyMessage(messageNum).getBody();
+    }
+
     @RequestMapping(value = "/update/{id}", method = RequestMethod.PUT)
     public String update(@RequestBody String body, @PathVariable("id") Long id, Model model) {
         //@ModelAttribute("userForm") User userForm
@@ -113,6 +118,8 @@ public class AppUserDataController {
     public String masterDatakey(@RequestParam ("id")Long id,@RequestParam ("code")String code){
         return service.masterDatakey(id,code).getBody();
     }
+
+
 
     @RequestMapping(value = "/findByCriteriaSize", method = RequestMethod.GET)
     public ResponseEntity<String> findByAll(@RequestParam (value ="sender",required = false)String sender,

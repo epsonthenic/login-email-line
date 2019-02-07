@@ -274,6 +274,9 @@
                     <div class="col-md-7 ">
                         <!--edit-->
                         <div>
+                            <button type="button" class="btn btn-primary btn-sm float-lg-right"
+                                    style="margin-right: 10px"  id="btn-newLog-text">New Log
+                            </button>
                             <button type="button" class="btn btn-danger btn-sm float-lg-right"
                                     style="margin-right: 10px"  id="btn-claer-text">Clear <span class="glyphicon glyphicon-ban-circle"/>
                             </button>
@@ -295,7 +298,7 @@
         </div>
         <div class="row" style="margin-top: 5px">
             <div class="col-md-12">
-                <table class="table table-striped table-sm" style="font-size: 13px;">
+                <table class="table table-striped table-sm" style="font-size: 12px;">
                     <thead>
                     <tr style="background-color: #cce5ff;text-align: center;">
                         <th>#</th>
@@ -697,39 +700,33 @@
                                                 </div>
                                                 <div class="col-md-5">
                                                     <select class="form-control form-control-sm" id="edit2-status">
-                                                        <option>wait..</option>
-                                                        <option>editing..</option>
-                                                        <option>testing..</option>
-                                                        <option style="color: green">complete</option>
-
+                                                        <jsp:text/>
                                                     </select>
                                                 </div>
                                             </div>
+
                                             <div class="row">
                                                 <div class="col-md-3">
                                                     <p class="float-lg-right">Type : </p>
                                                 </div>
                                                 <div class="col-md-5">
                                                     <select class="form-control form-control-sm" id="edit2-type">
-                                                        <option style="color: #00b0ff">email</option>
-                                                        <option style="color: green">LINE</option>
-
+                                                        <jsp:text/>
                                                     </select>
                                                 </div>
                                             </div>
+
                                             <div class="row">
                                                 <div class="col-md-3">
                                                     <p class="float-lg-right">Level : </p>
                                                 </div>
                                                 <div class="col-md-5">
                                                     <select class="form-control form-control-sm" id="edit2-level">
-                                                        <option>0</option>
-                                                        <option>1</option>
-                                                        <option>2</option>
-                                                        <option>3</option>
+                                                        <jsp:text/>
                                                     </select>
                                                 </div>
                                             </div>
+
                                             <div class="row">
                                                 <div class="col-md-3">
                                                     <p class="float-lg-right">Content : </p>
