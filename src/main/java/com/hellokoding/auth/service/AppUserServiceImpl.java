@@ -292,7 +292,7 @@ public class AppUserServiceImpl implements com.hellokoding.auth.service.Service 
     @Override
     public ResponseEntity<String> masterDatakey(Long id, String code) {
         RestTemplate restTemplate = new RestTemplate();
-        String url = ENGINE_URL.concat("/appMailDataCustom/getkeyword");
+        String url = ENGINE_URL.concat("/appMailDataCustom/getVariable1");
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON_UTF8);
         UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(url)
