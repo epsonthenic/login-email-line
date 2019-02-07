@@ -11,6 +11,10 @@ $(document).ready(function () {
     gettypeEdit();
     getstatusEdit();
     getlevelEdit();
+    console.log("ADD");
+    gettypeAdd();
+    getstatusAdd();
+    getlevelAdd();
 
 
     setDataSearch();
@@ -499,6 +503,31 @@ function getstatusEdit() {
     }
 }
 
+function getstatusAdd() {
+    json = JSON.parse(findByStatus());
+    console.log(json);
+    try {
+        json = json[0].split(",");
+        let count;
+        var colornum = 360;
+        var colorrun = 1;
+        for (count = 0; count < json.length; count++) {
+            if(colorrun = 1){
+                colornum = colornum - 20;
+                if(colornum <= 0 ){
+                    colornum = 360;
+                    colorrun = 1;
+                }
+            }
+            console.log(colornum);
+            $('#add-status').append(
+                '<option style="color: hsl('+colornum+', 100%,50%);font-size: 15px">' + json[count] + '</option>'
+            );
+        }
+    } catch (e) {
+    }
+}
+
 function getlevelEdit() {
     json = JSON.parse(findBylevel());
     console.log(json);
@@ -517,6 +546,55 @@ function getlevelEdit() {
             }
             console.log(colornum);
             $('#edit2-level').append(
+                '<option style="color: hsl('+colornum+', 100%,50%);font-size: 15px">' + json[count] + '</option>'
+            );
+        }
+    } catch (e) {
+    }
+}
+
+function getlevelAdd() {
+    json = JSON.parse(findBylevel());
+    console.log(json);
+    try {
+        json = json[0].split(",");
+        let count;
+        var colornum = 360;
+        var colorrun = 1;
+        for (count = 0; count < json.length; count++) {
+            if(colorrun = 1){
+                colornum = colornum - 20;
+                if(colornum <= 0 ){
+                    colornum = 360;
+                    colorrun = 1;
+                }
+            }
+            console.log(colornum);
+            $('#add-level').append(
+                '<option style="color: hsl('+colornum+', 100%,50%);font-size: 15px">' + json[count] + '</option>'
+            );
+        }
+    } catch (e) {
+    }
+}
+function gettypeAdd() {
+    json = JSON.parse(findBytype());
+    console.log(json);
+    try {
+        json = json[0].split(",");
+        let count;
+        var colornum = 360;
+        var colorrun = 1;
+        for (count = 0; count < json.length; count++) {
+            if(colorrun = 1){
+                colornum = colornum - 20;
+                if(colornum <= 0 ){
+                    colornum = 360;
+                    colorrun = 1;
+                }
+            }
+            console.log(colornum);
+            $('#add-type').append(
                 '<option style="color: hsl('+colornum+', 100%,50%);font-size: 15px">' + json[count] + '</option>'
             );
         }

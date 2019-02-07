@@ -411,10 +411,13 @@
                                                 </div>
                                                 <div class="col-sm-5">
                                                     <select class="form-control form-control-sm" id="add-type">
-                                                        <option style="color: #00b0ff">email</option>
-                                                        <option style="color: green">LINE</option>
-
+                                                        <jsp:text/>
                                                     </select>
+                                                    <!--<select class="form-control form-control-sm" id="add-type">-->
+                                                        <!--<option style="color: #00b0ff">email</option>-->
+                                                        <!--<option style="color: green">LINE</option>-->
+
+                                                    <!--</select>-->
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -423,11 +426,14 @@
                                                 </div>
                                                 <div class="col-sm-5">
                                                     <select class="form-control form-control-sm" id="add-level">
-                                                        <option>0</option>
-                                                        <option>1</option>
-                                                        <option>2</option>
-                                                        <option>3</option>
+                                                        <jsp:text/>
                                                     </select>
+                                                    <!--<select class="form-control form-control-sm" id="add-level">-->
+                                                        <!--<option>0</option>-->
+                                                        <!--<option>1</option>-->
+                                                        <!--<option>2</option>-->
+                                                        <!--<option>3</option>-->
+                                                    <!--</select>-->
                                                 </div>
                                             </div>
                                             <div class="row">
