@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/main/webapp/scripts/appUser/load.js" line="142" mnemonic="1" />
-    <bookmark url="file://$PROJECT_DIR$/src/main/webapp/scripts/appUser/load.js" line="913" mnemonic="2" />
-    <bookmark url="file://$PROJECT_DIR$/src/main/webapp/scripts/appUser/load.js" line="484" mnemonic="3" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/webapp/scripts/appUser/load.js" line="141" mnemonic="1" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/webapp/scripts/appUser/load.js" line="975" mnemonic="2" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ecd82e05-144d-4ce6-8c6e-a55462d3f840" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hellokoding/auth/Controller/AppUserDataController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hellokoding/auth/Controller/AppUserDataController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hellokoding/auth/service/AppUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hellokoding/auth/service/AppUserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hellokoding/auth/service/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hellokoding/auth/service/Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/layouts/default.jspx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/layouts/default.jspx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/scripts/appUser/load.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/scripts/appUser/load.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -37,14 +32,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/scripts/appUser/load.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="154" column="26" lean-forward="true" selection-start-line="154" selection-start-column="26" selection-end-line="154" selection-end-column="26" />
+            <state relative-caret-position="202">
+              <caret line="774" column="33" lean-forward="true" selection-start-line="774" selection-start-column="33" selection-end-line="774" selection-end-column="33" />
               <folding>
                 <element signature="n#!!block;n#findBySenderAndType#0" />
-                <element signature="n#!!block;n#showAll#0" />
                 <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#td#3;n#tr#0;n#!!top" expanded="true" />
@@ -57,8 +51,6 @@
                 <element signature="n#style#0;n#td#10;n#tr#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
                 <element signature="n#!!block;n#formatDate#0" />
-                <element signature="n#!!block;n#setDataSearch#0" />
-                <element signature="n#!!block;n#queryData#0" />
                 <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#td#3;n#tr#0;n#!!top" expanded="true" />
@@ -76,15 +68,16 @@
                 <element signature="n#style#0;n#option#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#option#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#option#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#option#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#option#0;n#!!top" expanded="true" />
                 <element signature="n#!!block;n#gettypeEdit#0" />
                 <element signature="n#style#0;n#option#0;n#!!top" expanded="true" />
-                <element signature="n#!!block;n#getstatus#0" />
+                <element signature="n#style#0;n#option#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#option#0;n#!!top" expanded="true" />
                 <element signature="n#!!block;n#getlevel#0" />
                 <element signature="n#style#0;n#option#0;n#!!top" expanded="true" />
                 <element signature="n#!!block;n#gettype#0" />
                 <element signature="n#style#0;n#option#0;n#!!top" expanded="true" />
-                <element signature="n#!!block;n#editSearchCustom#0" />
                 <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#td#3;n#tr#0;n#!!top" expanded="true" />
@@ -108,7 +101,6 @@
                 <element signature="n#!!block;n#update#0" />
                 <element signature="n#!!block;n#move#0" />
                 <element signature="n#!!block;n#findNewDataMail#0" />
-                <element signature="n#!!block;n#findDataMail#0" />
                 <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#td#3;n#tr#0;n#!!top" expanded="true" />
@@ -130,7 +122,6 @@
                 <element signature="n#!!block;n#modalEdit1#0" />
                 <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
                 <element signature="n#!!block;n#findByIdline#0" />
-                <element signature="n#!!block;n#findByStatus#0" />
                 <element signature="n#!!block;n#findBylevel#0" />
                 <element signature="n#!!block;n#findBytype#0" />
               </folding>
@@ -141,8 +132,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/hellokoding/auth/service/Service.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="60" column="60" lean-forward="true" selection-start-line="60" selection-start-column="60" selection-end-line="60" selection-end-column="60" />
+            <state relative-caret-position="900">
+              <caret line="60" column="60" selection-start-line="60" selection-start-column="60" selection-end-line="60" selection-end-column="60" />
             </state>
           </provider>
         </entry>
@@ -150,7 +141,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/hellokoding/auth/service/AppUserServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
+            <state relative-caret-position="3015">
               <caret line="207" column="17" selection-start-line="207" selection-start-column="17" selection-end-line="207" selection-end-column="36" />
             </state>
           </provider>
@@ -159,7 +150,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/hellokoding/auth/Controller/AppUserDataController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
+            <state relative-caret-position="495">
               <caret line="53" column="85" selection-start-line="53" selection-start-column="73" selection-end-line="53" selection-end-column="85" />
             </state>
           </provider>
@@ -168,17 +159,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="16" selection-start-column="16" selection-end-column="16" />
+            <state relative-caret-position="105">
+              <caret line="7" column="30" lean-forward="true" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/layouts/default.jspx">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
-              <caret line="19" column="40" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
+              <caret line="19" column="37" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -194,10 +185,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>tbody1</find>
-      <find>findBySenderAndType</find>
-      <find>editFindDataMail</find>
-      <find>search-level</find>
       <find>search-type</find>
       <find>getlevel</find>
       <find>jsonItem</find>
@@ -211,7 +198,6 @@
       <find>edit2</find>
       <find>showAll</find>
       <find>queryData</find>
-      <find>glyphicon glyphicon-star-empty</find>
       <find>level</find>
       <find>col-md-1</find>
       <find>col-md</find>
@@ -224,6 +210,11 @@
       <find>reply</find>
       <find>getRe</find>
       <find>getReply</find>
+      <find>x.flag</find>
+      <find>glyphicon glyphicon-star-empty</find>
+      <find>search-status</find>
+      <find>&lt;tr&gt;</find>
+      <find>findBycomplete</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -246,9 +237,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/hellokoding/auth/service/Service.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hellokoding/auth/service/AppUserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hellokoding/auth/Controller/AppUserDataController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/scripts/appUser/load.js" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/layouts/default.jspx" />
+        <option value="$PROJECT_DIR$/src/main/webapp/scripts/appUser/load.js" />
       </list>
     </option>
   </component>
@@ -280,7 +271,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -436,7 +427,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -495,18 +486,19 @@
       <workItem from="1549516583766" duration="9000" />
       <workItem from="1549518528035" duration="1028000" />
       <workItem from="1549519732265" duration="567000" />
-      <workItem from="1549520623101" duration="8164000" />
+      <workItem from="1549520623101" duration="11928000" />
+      <workItem from="1549590013927" duration="1633000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65493000" />
+    <option name="totallyTimeSpent" value="70890000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="41" y="-4" width="1325" height="772" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24628615" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25019547" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -522,7 +514,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Spring" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.3782946" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3782946" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
@@ -730,13 +722,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hellokoding/auth/service/Service.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="900">
+          <caret line="60" column="60" selection-start-line="60" selection-start-column="60" selection-end-line="60" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hellokoding/auth/service/AppUserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3015">
+          <caret line="207" column="17" selection-start-line="207" selection-start-column="17" selection-end-line="207" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hellokoding/auth/Controller/AppUserDataController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="53" column="85" selection-start-line="53" selection-start-column="73" selection-end-line="53" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/layouts/default.jspx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="37" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="30" lean-forward="true" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/scripts/appUser/load.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="154" column="26" lean-forward="true" selection-start-line="154" selection-start-column="26" selection-end-line="154" selection-end-column="26" />
+        <state relative-caret-position="202">
+          <caret line="774" column="33" lean-forward="true" selection-start-line="774" selection-start-column="33" selection-end-line="774" selection-end-column="33" />
           <folding>
             <element signature="n#!!block;n#findBySenderAndType#0" />
-            <element signature="n#!!block;n#showAll#0" />
             <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#3;n#tr#0;n#!!top" expanded="true" />
@@ -749,8 +775,6 @@
             <element signature="n#style#0;n#td#10;n#tr#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
             <element signature="n#!!block;n#formatDate#0" />
-            <element signature="n#!!block;n#setDataSearch#0" />
-            <element signature="n#!!block;n#queryData#0" />
             <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#3;n#tr#0;n#!!top" expanded="true" />
@@ -768,15 +792,16 @@
             <element signature="n#style#0;n#option#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#option#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#option#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#option#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#option#0;n#!!top" expanded="true" />
             <element signature="n#!!block;n#gettypeEdit#0" />
             <element signature="n#style#0;n#option#0;n#!!top" expanded="true" />
-            <element signature="n#!!block;n#getstatus#0" />
+            <element signature="n#style#0;n#option#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#option#0;n#!!top" expanded="true" />
             <element signature="n#!!block;n#getlevel#0" />
             <element signature="n#style#0;n#option#0;n#!!top" expanded="true" />
             <element signature="n#!!block;n#gettype#0" />
             <element signature="n#style#0;n#option#0;n#!!top" expanded="true" />
-            <element signature="n#!!block;n#editSearchCustom#0" />
             <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#3;n#tr#0;n#!!top" expanded="true" />
@@ -800,7 +825,6 @@
             <element signature="n#!!block;n#update#0" />
             <element signature="n#!!block;n#move#0" />
             <element signature="n#!!block;n#findNewDataMail#0" />
-            <element signature="n#!!block;n#findDataMail#0" />
             <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#3;n#tr#0;n#!!top" expanded="true" />
@@ -822,45 +846,9 @@
             <element signature="n#!!block;n#modalEdit1#0" />
             <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
             <element signature="n#!!block;n#findByIdline#0" />
-            <element signature="n#!!block;n#findByStatus#0" />
             <element signature="n#!!block;n#findBylevel#0" />
             <element signature="n#!!block;n#findBytype#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hellokoding/auth/service/Service.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="60" column="60" lean-forward="true" selection-start-line="60" selection-start-column="60" selection-end-line="60" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hellokoding/auth/Controller/AppUserDataController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="53" column="85" selection-start-line="53" selection-start-column="73" selection-end-line="53" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hellokoding/auth/service/AppUserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="207" column="17" selection-start-line="207" selection-start-column="17" selection-end-line="207" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="16" selection-start-column="16" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/layouts/default.jspx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="40" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
         </state>
       </provider>
     </entry>

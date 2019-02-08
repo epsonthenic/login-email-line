@@ -20,7 +20,6 @@ $(document).ready(function () {
     setDataSearch();
 
 
-
     $('#txt-modal-calendar').daterangepicker({
         locale: {
             format: 'DD-MM-YYYY hh:mm A'
@@ -151,8 +150,10 @@ function replyMessage(id) {
         url: session.context + "/appUsers/getReply",
         headers: {Accept: "application/json;charset=UTF-8"},
         type: "GET",
-        data: {messageNum: jsonMess[indexjson].messageNum,
-                id: jsonMess[indexjson].id},
+        data: {
+            messageNum: jsonMess[indexjson].messageNum,
+            id: jsonMess[indexjson]
+        },
         async: false,
         complete: function (xhr) {
             $('#modal-alert-update').modal('hide');
@@ -205,6 +206,7 @@ function showAll() {
     var type = "";
     var StartTime = startTime();
     var EndTime = endTime();
+    var flagIcon;
 
     console.log(sender);
     console.log(subject);
@@ -249,12 +251,18 @@ function showAll() {
         for (x of json) {
             console.log("x " + x);
             console.log("json length " + json.length);
-            //var date = new Date(x.sentDate);
-
+            //var date = new Date(x.sentDat
+            //'<td>'+'<span class="'+ l +'" aria-hidden="true">'+'</span>'+'</td>' +
+            if (x.flag == true) {
+                flagIcon = "glyphicon glyphicon-star";
+            } else {
+                flagIcon = "";
+            }
+            //'<td>'+'<span class="" aria-hidden="true">'+'</span>'+'</td>' +
             $('#tbody1').append('' +
                 '<tr data-idd="' + x.id + '">' +
                 '<td style="text-align: center;font-size: 95%">' + x.id + '</td>' +
-                '<td>'+'<span class="glyphicon glyphicon-star-empty" aria-hidden="true">'+'</span>'+'</td>' +
+                '<td>' + '<span class="' + flagIcon + '" aria-hidden="true">' + '</span>' + '</td>' +
                 '<td style="text-align: center;font-size: 95%">' + x.sender + '</td>' +
                 '<td style="text-align: center;font-size: 95%">' + x.send_To + '</td>' +
                 '<td style="text-align: center;font-size: 95%">' + x.subject + '</td>' +
@@ -380,6 +388,7 @@ function queryData(criteriaObject) {
     objectUtilPagination.loadTable = function (items) {
 
         var item = items;
+        var flagIcon;
         jsonItem = items;
         console.log("jsonItem :", jsonItem);
         console.log(item)
@@ -392,10 +401,15 @@ function queryData(criteriaObject) {
             for (x of item) {
                 console.log("x " + x);
                 console.log("item length " + item.length);
+                if (x.flag == true) {
+                    flagIcon = "glyphicon glyphicon-star";
+                } else {
+                    flagIcon = "";
+                }
                 $('#tbody1').append('' +
                     '<tr data-idd="' + x.id + '">' +
                     '<td style="text-align: center;font-size: 95%">' + x.id + '</td>' +
-                    '<td>'+'<span class="glyphicon glyphicon-star-empty" aria-hidden="true">'+'</span>'+'</td>' +
+                    '<td>' + '<span class="' + flagIcon + '" aria-hidden="true">' + '</span>' + '</td>' +
                     '<td style="text-align: center;font-size: 95%">' + x.sender + '</td>' +
                     '<td style="text-align: center;font-size: 95%">' + x.send_To + '</td>' +
                     '<td style="text-align: center;font-size: 95%">' + x.subject + '</td>' +
@@ -481,23 +495,37 @@ function customSearch() {
 
 function getstatusEdit() {
     json = JSON.parse(findByStatus());
+    json1 = JSON.parse(findBycomplete());
     console.log(json);
     try {
         json = json[0].split(",");
+        json1 = json1[0].split(",");
         let count;
         var colornum = 360;
         var colorrun = 1;
         for (count = 0; count < json.length; count++) {
-            if(colorrun = 1){
-                colornum = colornum - 20;
-                if(colornum <= 0 ){
-                    colornum = 360;
-                    colorrun = 1;
-                }
+
+            colornum = colornum - 20;
+            if (colornum <= 0) {
+                colornum = 360;
+                colorrun = 1;
+            }
+
+            console.log(colornum);
+            $('#edit2-status').append(
+                '<option style="color: hsl(' + colornum + ', 100%,50%);font-size: 15px">' + json[count] + '</option>'
+            );
+        }
+        for (count1 = 0; count1 < json1.length; count1++) {
+            colornum = colornum - 20;
+            if (colornum <= 0) {
+                colornum = 360;
+                colorrun = 1;
+
             }
             console.log(colornum);
             $('#edit2-status').append(
-                '<option style="color: hsl('+colornum+', 100%,50%);font-size: 15px">' + json[count] + '</option>'
+                '<option style="color: hsl(' + colornum + ', 100%,50%);font-size: 15px">' + json1[count1] + '</option>'
             );
         }
     } catch (e) {
@@ -506,23 +534,37 @@ function getstatusEdit() {
 
 function getstatusAdd() {
     json = JSON.parse(findByStatus());
+    json1 = JSON.parse(findBycomplete());
     console.log(json);
     try {
         json = json[0].split(",");
+        json1 = json1[0].split(",");
         let count;
         var colornum = 360;
         var colorrun = 1;
         for (count = 0; count < json.length; count++) {
-            if(colorrun = 1){
-                colornum = colornum - 20;
-                if(colornum <= 0 ){
-                    colornum = 360;
-                    colorrun = 1;
-                }
+
+            colornum = colornum - 20;
+            if (colornum <= 0) {
+                colornum = 360;
+                colorrun = 1;
+            }
+
+            console.log(colornum);
+            $('#add-status').append(
+                '<option style="color: hsl(' + colornum + ', 100%,50%);font-size: 15px">' + json[count] + '</option>'
+            );
+        }
+        for (count1 = 0; count1 < json1.length; count1++) {
+            colornum = colornum - 20;
+            if (colornum <= 0) {
+                colornum = 360;
+                colorrun = 1;
+
             }
             console.log(colornum);
             $('#add-status').append(
-                '<option style="color: hsl('+colornum+', 100%,50%);font-size: 15px">' + json[count] + '</option>'
+                '<option style="color: hsl(' + colornum + ', 100%,50%);font-size: 15px">' + json1[count1] + '</option>'
             );
         }
     } catch (e) {
@@ -538,16 +580,16 @@ function getlevelEdit() {
         var colornum = 360;
         var colorrun = 1;
         for (count = 0; count < json.length; count++) {
-            if(colorrun = 1){
+            if (colorrun = 1) {
                 colornum = colornum - 20;
-                if(colornum <= 0 ){
+                if (colornum <= 0) {
                     colornum = 360;
                     colorrun = 1;
                 }
             }
             console.log(colornum);
             $('#edit2-level').append(
-                '<option style="color: hsl('+colornum+', 100%,50%);font-size: 15px">' + json[count] + '</option>'
+                '<option style="color: hsl(' + colornum + ', 100%,50%);font-size: 15px">' + json[count] + '</option>'
             );
         }
     } catch (e) {
@@ -563,21 +605,22 @@ function getlevelAdd() {
         var colornum = 360;
         var colorrun = 1;
         for (count = 0; count < json.length; count++) {
-            if(colorrun = 1){
+            if (colorrun = 1) {
                 colornum = colornum - 20;
-                if(colornum <= 0 ){
+                if (colornum <= 0) {
                     colornum = 360;
                     colorrun = 1;
                 }
             }
             console.log(colornum);
             $('#add-level').append(
-                '<option style="color: hsl('+colornum+', 100%,50%);font-size: 15px">' + json[count] + '</option>'
+                '<option style="color: hsl(' + colornum + ', 100%,50%);font-size: 15px">' + json[count] + '</option>'
             );
         }
     } catch (e) {
     }
 }
+
 function gettypeAdd() {
     json = JSON.parse(findBytype());
     console.log(json);
@@ -587,21 +630,22 @@ function gettypeAdd() {
         var colornum = 360;
         var colorrun = 1;
         for (count = 0; count < json.length; count++) {
-            if(colorrun = 1){
+            if (colorrun = 1) {
                 colornum = colornum - 20;
-                if(colornum <= 0 ){
+                if (colornum <= 0) {
                     colornum = 360;
                     colorrun = 1;
                 }
             }
             console.log(colornum);
             $('#add-type').append(
-                '<option style="color: hsl('+colornum+', 100%,50%);font-size: 15px">' + json[count] + '</option>'
+                '<option style="color: hsl(' + colornum + ', 100%,50%);font-size: 15px">' + json[count] + '</option>'
             );
         }
     } catch (e) {
     }
 }
+
 function gettypeEdit() {
     json = JSON.parse(findBytype());
     console.log(json);
@@ -611,16 +655,16 @@ function gettypeEdit() {
         var colornum = 360;
         var colorrun = 1;
         for (count = 0; count < json.length; count++) {
-            if(colorrun = 1){
+            if (colorrun = 1) {
                 colornum = colornum - 20;
-                if(colornum <= 0 ){
+                if (colornum <= 0) {
                     colornum = 360;
                     colorrun = 1;
                 }
             }
             console.log(colornum);
             $('#edit2-type').append(
-                '<option style="color: hsl('+colornum+', 100%,50%);font-size: 15px">' + json[count] + '</option>'
+                '<option style="color: hsl(' + colornum + ', 100%,50%);font-size: 15px">' + json[count] + '</option>'
             );
         }
     } catch (e) {
@@ -629,29 +673,42 @@ function gettypeEdit() {
 
 function getstatus() {
     json = JSON.parse(findByStatus());
+    json1 = JSON.parse(findBycomplete());
     console.log(json);
     try {
         json = json[0].split(",");
+        json1 = json1[0].split(",");
         let count;
         var colornum = 360;
         var colorrun = 1;
         for (count = 0; count < json.length; count++) {
-            if(colorrun = 1){
-                colornum = colornum - 20;
-                if(colornum <= 0 ){
-                    colornum = 360;
-                    colorrun = 1;
-                }
+
+            colornum = colornum - 20;
+            if (colornum <= 0) {
+                colornum = 360;
+                colorrun = 1;
+            }
+
+            console.log(colornum);
+            $('#search-status').append(
+                '<option style="color: hsl(' + colornum + ', 100%,50%);font-size: 15px">' + json[count] + '</option>'
+            );
+        }
+        for (count1 = 0; count1 < json1.length; count1++) {
+            colornum = colornum - 20;
+            if (colornum <= 0) {
+                colornum = 360;
+                colorrun = 1;
+
             }
             console.log(colornum);
             $('#search-status').append(
-                '<option style="color: hsl('+colornum+', 100%,50%);font-size: 15px">' + json[count] + '</option>'
+                '<option style="color: hsl(' + colornum + ', 100%,50%);font-size: 15px">' + json1[count1] + '</option>'
             );
         }
     } catch (e) {
     }
 }
-
 
 
 function getlevel() {
@@ -663,16 +720,16 @@ function getlevel() {
         var colornum = 360;
         var colorrun = 1;
         for (count = 0; count < json.length; count++) {
-            if(colorrun = 1){
+            if (colorrun = 1) {
                 colornum = colornum - 20;
-                if(colornum <= 0 ){
+                if (colornum <= 0) {
                     colornum = 360;
                     colorrun = 1;
                 }
             }
             console.log(colornum);
-            $('#search-level').append(''+
-                '<option style="color: hsl('+colornum+', 100%,50%);font-size: 15px">' + json[count] + '</option>'
+            $('#search-level').append('' +
+                '<option style="color: hsl(' + colornum + ', 100%,50%);font-size: 15px">' + json[count] + '</option>'
             );
         }
     } catch (e) {
@@ -688,16 +745,16 @@ function gettype() {
         var colornum = 360;
         var colorrun = 1;
         for (count = 0; count < json.length; count++) {
-            if(colorrun = 1){
+            if (colorrun = 1) {
                 colornum = colornum - 20;
-                if(colornum <= 0 ){
+                if (colornum <= 0) {
                     colornum = 360;
                     colorrun = 1;
                 }
             }
             console.log(colornum);
             $('#search-type').append(
-                '<option style="color: hsl('+colornum+', 100%,50%);font-size: 15px">' + json[count] + '</option>'
+                '<option style="color: hsl(' + colornum + ', 100%,50%);font-size: 15px">' + json[count] + '</option>'
             );
         }
     } catch (e) {
@@ -706,7 +763,7 @@ function gettype() {
 
 function editSearchCustom() {
     json = JSON.parse(customSearch());
-
+    var flagIcon;
     console.log("function");
 
     $('#tbody1').empty();
@@ -715,10 +772,15 @@ function editSearchCustom() {
         for (x of json) {
             console.log("x " + x);
             console.log("json length " + json.length);
+            if (x.flag == true) {
+                flagIcon = "glyphicon glyphicon-star";
+            } else {
+                flagIcon = "";
+            }
             $('#tbody1').append('' +
                 '<tr data-idd="' + x.id + '">' +
                 '<td style="text-align: center;font-size: 95%">' + x.id + '</td>' +
-                '<td>'+'<span class="glyphicon glyphicon-star-empty" aria-hidden="true">'+'</span>'+'</td>' +
+                '<td>' + '<span class="' + flagIcon + '" aria-hidden="true">' + '</span>' + '</td>' +
                 '<td style="text-align: center;font-size: 95%">' + x.sender + '</td>' +
                 '<td style="text-align: center;font-size: 95%">' + x.send_To + '</td>' +
                 '<td style="text-align: center;font-size: 95%">' + x.subject + '</td>' +
@@ -928,7 +990,7 @@ function update() {
         status: $('#edit2-status').val(),
         type: $('#edit2-type').val(),
         attachments: $('#edit-attachmentsFullName').text(),
-        send_To:json[indexjson].send_To,
+        send_To: json[indexjson].send_To,
         messageNum: json[indexjson].messageNum
     }
     console.log("json :", jsonData);
@@ -1085,6 +1147,7 @@ function insert() {
 }
 
 function findDataMail() {
+    var flagIcon;
     let json = $.ajax({
         url: session.context + "/appUsers/findDataMail",
         headers: {Accept: "application/json;charset=UTF-8"},
@@ -1102,10 +1165,15 @@ function findDataMail() {
         for (x of json) {
             console.log("x " + x);
             console.log("json length " + json.length);
+            if (x.flag == true) {
+                flagIcon = "glyphicon glyphicon-star";
+            } else {
+                flagIcon = "";
+            }
             $('#tbody1').append('' +
                 '<tr>' +
                 '<td style="text-align: center;font-size: 95%">' + x.id + '</td>' +
-                '<td>'+'<span class="glyphicon glyphicon-star-empty" aria-hidden="true">'+'</span>'+'</td>' +
+                '<td>' + '<span class="' + flagIcon + '" aria-hidden="true">' + '</span>' + '</td>' +
                 '<td style="text-align: center;font-size: 95%">' + x.sender + '</td>' +
                 '<td style="text-align: center;font-size: 95%">' + x.send_To + '</td>' +
                 '<td style="text-align: center;font-size: 95%">' + x.subject + '</td>' +
@@ -1480,6 +1548,19 @@ function findByIdline() {
 function findByStatus() {
     let json = $.ajax({
         url: session.context + "/appUsers/getkeyword?id=200&code=status.list",
+        contentType: "application/json;charset=UTF-8",
+        headers: {Accept: "application/json;charset=UTF-8"},
+        type: "GET",
+        async: false
+    }).done(function () {
+        console.log('done')
+    }).responseText;
+    return json;
+}
+
+function findBycomplete() {
+    let json = $.ajax({
+        url: session.context + "/appUsers/getkeyword?id=200&code=complete.list",
         contentType: "application/json;charset=UTF-8",
         headers: {Accept: "application/json;charset=UTF-8"},
         type: "GET",
